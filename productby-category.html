@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Crawford – Categories</title>
+    <title>Crawford App | Online E-commerce Shopping Crawford Market</title>
     <link rel="stylesheet" href="./Assets/css/global.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -22,7 +22,7 @@
 
                 <!-- LOGO -->
                 <h1 class="flex text-3xl font-bold text-yellow-500 cursor-pointer" onclick="showHome()">
-                    <img src="./Assets/Images/logo.png" alt="crawford2U Logo" class="inline h-10 mr-0" />
+                    <img src="./Assets/Images/logo.webp" alt="crawford2U Logo" class="inline h-10 mr-0" />
                     crawford <span class="text-green-600">2U</span>
                 </h1>
 
@@ -47,8 +47,45 @@
                 </div>
 
                 <!-- ACTIONS -->
-                <div class="flex items-center gap-6 cursor-pointer">
-                    <button onclick="login()" class="text-sm font-medium">Login</button>
+                <div class="relative flex items-center gap-6">
+
+                    <!-- LOGIN DROPDOWN -->
+                    <div class="relative group">
+
+                        <button class="text-sm font-medium flex items-center gap-1" onclick="toggleLoginDropdown()">
+                            Login
+                            <span class="material-icons text-base">expand_more</span>
+                        </button>
+
+                        <!-- DROPDOWN -->
+                        <div id="loginDropdown" class="hidden absolute right-0 mt-3 w-52 bg-white rounded-xl shadow-lg
+                   border border-gray-100 overflow-hidden z-50">
+
+                            <!-- USER LOGIN -->
+                            <button onclick="openUserLoginModal()"
+                                class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50">
+                                <span class="material-icons text-green-600">person</span>
+
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Login as User</p>
+                                    <p class="text-xs text-gray-500">For customers</p>
+                                </div>
+                            </button>
+
+                            <!-- AGENT LOGIN -->
+                            <button onclick="showLogin()" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50">
+                                <span class="material-icons text-blue-600">badge</span>
+
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Login as Agent</p>
+                                    <p class="text-xs text-gray-500">For delivery / staff</p>
+                                </div>
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <!-- CART BUTTON -->
                     <button id="openCartBtn" class="flex items-center gap-2 bg-gray-200 px-4 py-2 rounded-lg">
                         <span class="material-icons text-base">shopping_cart</span>
                         My Cart
@@ -73,7 +110,7 @@
 
             <!-- Title -->
             <h1 class="mx-auto lg:mx-0 text-xl md:text-2xl font-bold text-center lg:text-left">
-                Cleaning Essentials
+                Seed Products
             </h1>
         </div>
 
@@ -96,7 +133,8 @@
             <!-- CARD -->
             <div onclick="showProductDetail()" class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                 <div class="relative">
-                    <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                    <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                        class="h-28 sm:h-32 mx-auto object-contain" />
 
                     <!-- RATING BADGE -->
                     <div
@@ -118,7 +156,8 @@
             <!-- CARD -->
             <div onclick="showProductDetail()" class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                 <div class="relative">
-                    <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                    <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                        class="h-28 sm:h-32 mx-auto object-contain" />
 
                     <!-- RATING BADGE -->
                     <div
@@ -140,7 +179,8 @@
             <!-- CARD -->
             <div onclick="showProductDetail()" class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                 <div class="relative">
-                    <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                    <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                        class="h-28 sm:h-32 mx-auto object-contain" />
 
                     <!-- RATING BADGE -->
                     <div
@@ -162,7 +202,8 @@
             <!-- CARD -->
             <div onclick="showProductDetail()" class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                 <div class="relative">
-                    <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                    <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                        class="h-28 sm:h-32 mx-auto object-contain" />
 
                     <!-- RATING BADGE -->
                     <div
@@ -184,7 +225,8 @@
             <!-- CARD -->
             <div onclick="showProductDetail()" class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                 <div class="relative">
-                    <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                    <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                        class="h-28 sm:h-32 mx-auto object-contain" />
 
                     <!-- RATING BADGE -->
                     <div
@@ -206,7 +248,8 @@
             <!-- CARD -->
             <div onclick="showProductDetail()" class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                 <div class="relative">
-                    <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                    <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                        class="h-28 sm:h-32 mx-auto object-contain" />
 
                     <!-- RATING BADGE -->
                     <div
@@ -228,7 +271,8 @@
             <!-- CARD -->
             <div onclick="showProductDetail()" class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                 <div class="relative">
-                    <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                    <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                        class="h-28 sm:h-32 mx-auto object-contain" />
 
                     <!-- RATING BADGE -->
                     <div
@@ -250,7 +294,8 @@
             <!-- CARD -->
             <div onclick="showProductDetail()" class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                 <div class="relative">
-                    <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                    <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                        class="h-28 sm:h-32 mx-auto object-contain" />
 
                     <!-- RATING BADGE -->
                     <div
@@ -272,7 +317,8 @@
             <!-- CARD -->
             <div onclick="showProductDetail()" class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                 <div class="relative">
-                    <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                    <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                        class="h-28 sm:h-32 mx-auto object-contain" />
 
                     <!-- RATING BADGE -->
                     <div
@@ -294,7 +340,8 @@
             <!-- CARD -->
             <div onclick="showProductDetail()" class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                 <div class="relative">
-                    <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                    <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                        class="h-28 sm:h-32 mx-auto object-contain" />
 
                     <!-- RATING BADGE -->
                     <div
@@ -316,7 +363,8 @@
             <!-- CARD -->
             <div onclick="showProductDetail()" class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                 <div class="relative">
-                    <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                    <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                        class="h-28 sm:h-32 mx-auto object-contain" />
 
                     <!-- RATING BADGE -->
                     <div
@@ -533,6 +581,92 @@
             </a>
         </div>
     </div>
+
+    <!-- USER LOGIN MODAL -->
+    <div id="userLoginModal" class="fixed inset-0 z-[9999] hidden">
+
+        <!-- Backdrop -->
+        <div onclick="closeUserLoginModal()" class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+        <!-- Modal -->
+        <div class="absolute bottom-0 left-0 right-0
+               lg:relative lg:top-1/2 lg:-translate-y-1/2 lg:mx-auto
+               bg-white rounded-t-3xl lg:rounded-3xl
+               w-full lg:max-w-[480px]
+               px-6 py-8
+               max-h-[92vh] overflow-hidden">
+
+            <!-- LOGO -->
+            <div class="flex justify-center mb-4">
+                <img src="./Assets/Images/logo.webp" alt="Crawford" class="h-14 object-contain">
+            </div>
+
+            <!-- HEADING -->
+            <h2 class="text-2xl font-bold text-center text-gray-900">
+                India’s Largest Online<br>Crawford Market
+            </h2>
+
+            <p class="text-center text-sm text-gray-500 mt-1">
+                Login or signup to continue
+            </p>
+
+            <!-- PHONE SECTION -->
+            <div id="user-phone-section" class="mt-8">
+
+                <label class="text-sm font-medium text-gray-700">
+                    Phone number
+                </label>
+
+                <div
+                    class="mt-2 flex items-center gap-3 border border-gray-300 rounded-xl px-4 py-3 focus-within:border-green-600">
+
+                    <span class="text-gray-800 font-medium">+91</span>
+
+                    <input type="tel" placeholder="Enter mobile number" class="flex-1 outline-none text-base" />
+                </div>
+
+                <button onclick="showUserOTP()" class="w-full mt-6 bg-green-600 hover:bg-green-700
+                       text-white py-3.5 rounded-xl font-semibold text-base">
+                    Continue
+                </button>
+            </div>
+
+            <!-- OTP SECTION -->
+            <div id="user-otp-section" class="hidden mt-8">
+
+                <p class="text-sm text-gray-600 text-center">
+                    Enter the 4-digit OTP sent to your number
+                </p>
+
+                <!-- OTP INPUTS -->
+                <div class="mt-5 flex justify-center gap-4">
+                    <input maxlength="1" class="user-otp-input" />
+                    <input maxlength="1" class="user-otp-input" />
+                    <input maxlength="1" class="user-otp-input" />
+                    <input maxlength="1" class="user-otp-input" />
+                </div>
+
+                <button onclick="submitUserOTP()" class="w-full mt-6 bg-green-600 hover:bg-green-700
+                       text-white py-3.5 rounded-xl font-semibold text-base">
+                    Verify OTP
+                </button>
+
+                <button onclick="resetUserLogin()" class="mt-4 block mx-auto text-green-600 text-sm font-medium">
+                    Change number
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- SUCCESS TOAST -->
+    <div id="loginSuccessToast" class="hidden fixed bottom-6 inset-x-4 mx-auto max-w-fit
+           bg-green-600 text-white px-5 py-3
+           rounded-xl text-sm shadow-lg z-[9999]">
+        Login successful 🎉
+    </div>
+
 
 
     <script src="./Assets/js/main.js"></script>

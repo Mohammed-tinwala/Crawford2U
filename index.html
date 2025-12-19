@@ -4,13 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Crawford App – Home</title>
+    <title>Crawford App | Online E-commerce Shopping Crawford Market</title>
     <link rel="stylesheet" href="./Assets/css/global.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-
 </head>
 
 <body>
@@ -24,7 +22,7 @@
 
                 <!-- LOGO -->
                 <h1 class="flex text-3xl font-bold text-yellow-500 cursor-pointer" onclick="showHome()">
-                    <img src="./Assets/Images/logo.png" alt="crawford2U Logo" class="inline h-10 mr-0" />
+                    <img src="./Assets/Images/logo.webp" alt="crawford2U Logo" class="inline h-10 mr-0" />
                     crawford <span class="text-green-600">2U</span>
                 </h1>
 
@@ -49,13 +47,51 @@
                 </div>
 
                 <!-- ACTIONS -->
-                <div class="flex items-center gap-6 cursor-pointer">
-                    <button onclick="login()" class="text-sm font-medium">Login</button>
+                <div class="relative flex items-center gap-6">
+
+                    <!-- LOGIN DROPDOWN -->
+                    <div class="relative group">
+
+                        <button class="text-sm font-medium flex items-center gap-1" onclick="toggleLoginDropdown()">
+                            Login
+                            <span class="material-icons text-base">expand_more</span>
+                        </button>
+
+                        <!-- DROPDOWN -->
+                        <div id="loginDropdown" class="hidden absolute right-0 mt-3 w-52 bg-white rounded-xl shadow-lg
+                   border border-gray-100 overflow-hidden z-50">
+
+                            <!-- USER LOGIN -->
+                            <button onclick="openUserLoginModal()"
+                                class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50">
+                                <span class="material-icons text-green-600">person</span>
+
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Login as User</p>
+                                    <p class="text-xs text-gray-500">For customers</p>
+                                </div>
+                            </button>
+
+                            <!-- AGENT LOGIN -->
+                            <button onclick="showLogin()" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50">
+                                <span class="material-icons text-blue-600">badge</span>
+
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Login as Agent</p>
+                                    <p class="text-xs text-gray-500">For delivery / staff</p>
+                                </div>
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <!-- CART BUTTON -->
                     <button id="openCartBtn" class="flex items-center gap-2 bg-gray-200 px-4 py-2 rounded-lg">
                         <span class="material-icons text-base">shopping_cart</span>
                         My Cart
                     </button>
                 </div>
+
 
             </div>
         </div>
@@ -100,7 +136,8 @@
 
                         <!-- Slide 1 -->
                         <div class="min-w-full flex items-center gap-4 p-4">
-                            <img src="./Assets/Images/stationery-item-bgremove.png" class="w-28 object-contain" />
+                            <img loading="lazy" src="./Assets/Images/stationery-item-bgremove.webp"
+                                class="w-28 object-contain" />
                             <div>
                                 <h3 class="text-xl font-bold">Stationery Items</h3>
                                 <p class="text-green-600 font-medium">Get Up To 40% OFF</p>
@@ -109,7 +146,8 @@
 
                         <!-- Slide 2 -->
                         <div class="min-w-full flex items-center gap-4 p-4">
-                            <img src="./Assets/Images/cleaning-essentials-bgremove.png" class="w-28 object-contain" />
+                            <img loading="lazy" src="./Assets/Images/cleaning-essentials-bgremove.webp"
+                                class="w-28 object-contain" />
                             <div>
                                 <h3 class="text-xl font-bold">Cleaning Essentials</h3>
                                 <p class="text-green-600 font-medium">Flat 30% Discount</p>
@@ -118,7 +156,8 @@
 
                         <!-- Slide 3 -->
                         <div class="min-w-full flex items-center gap-4 p-4">
-                            <img src="./Assets/Images/mixed-nuts.jpg" class="w-28 object-cover rounded-xl" />
+                            <img loading="lazy" src="./Assets/Images/dryfig-category.webp"
+                                class="w-28 object-cover rounded-xl" />
                             <div>
                                 <h3 class="text-xl font-bold">Dry Fruits</h3>
                                 <p class="text-green-600 font-medium">Healthy & Fresh</p>
@@ -127,7 +166,8 @@
 
                         <!-- CLONE OF SLIDE 1 (IMPORTANT) -->
                         <div class="min-w-full flex items-center gap-4 p-4">
-                            <img src="./Assets/Images/stationery-item-bgremove.png" class="w-28 object-contain" />
+                            <img loading="lazy" src="./Assets/Images/stationery-item-bgremove.webp"
+                                class="w-28 object-contain" />
                             <div>
                                 <h3 class="text-xl font-bold">Stationery Items</h3>
                                 <p class="text-green-600 font-medium">Get Up To 40% OFF</p>
@@ -161,7 +201,8 @@
     <section class="hidden lg:block max-w-7xl mx-auto px-6 py-6">
         <!-- Top Large Banner -->
         <div class="relative w-full h-64 rounded-2xl overflow-hidden mb-6">
-            <img src="./Assets/Images/drufruits-banner.avif" alt="Paan Corner" class="w-full h-full object-cover" />
+            <img loading="lazy" src="./Assets/Images/drufruits-banner.webp" alt="Paan Corner"
+                class="w-full h-full object-cover" />
             <div class="absolute inset-0 bg-stone-700/50"></div>
 
             <div class="absolute inset-0 flex flex-col justify-center px-10">
@@ -190,7 +231,8 @@
         <div class="grid grid-cols-3 gap-6">
             <!-- Banner 1 -->
             <div class="relative h-48 rounded-2xl overflow-hidden">
-                <img src="./Assets/Images/cleaning-banner.jpg" alt="Pharmacy" class="w-full h-full object-cover" />
+                <img loading="lazy" src="./Assets/Images/cleaning-banner.webp" alt="Pharmacy"
+                    class="w-full h-full object-cover" />
                 <div class="absolute inset-0 bg-teal-600/50"></div>
 
                 <div class="absolute inset-0 p-6 flex flex-col justify-between">
@@ -211,7 +253,8 @@
 
             <!-- Banner 2 -->
             <div class="relative h-48 rounded-2xl overflow-hidden">
-                <img src="./Assets/Images/stationer-banner2.jpg" alt="Pet Care" class="w-full h-full object-cover" />
+                <img loading="lazy" src="./Assets/Images/stationer-banner2.webp" alt="Pet Care"
+                    class="w-full h-full object-cover" />
                 <div class="absolute inset-0 bg-yellow-500/50"></div>
 
                 <div class="absolute inset-0 p-6 flex flex-col justify-between">
@@ -232,7 +275,8 @@
 
             <!-- Banner 3 -->
             <div class="relative h-48 rounded-2xl overflow-hidden">
-                <img src="./Assets/Images/kitchen-banner.jpg" alt="Baby Care" class="w-full h-full object-cover" />
+                <img loading="lazy" src="./Assets/Images/kitchen-banner.webp" alt="Baby Care"
+                    class="w-full h-full object-cover" />
                 <div class="absolute inset-0 bg-stone-700/50"></div>
 
                 <div class="absolute inset-0 p-6 flex flex-col justify-between">
@@ -270,7 +314,7 @@
                 <div onclick="showCatPage()" class="cursor-pointer flex flex-col items-center min-w-[80px]">
                     <!-- Gray background wrapper -->
                     <div class="bg-gray-300 rounded-full md:rounded-lg">
-                        <img src="./Assets/Images/dryfruits-category.png"
+                        <img loading="lazy" src="./Assets/Images/dryfruits-category.webp"
                             class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] shadow-lg rounded-full md:rounded-lg object-cover" />
                     </div>
                     <p class="text-xs md:text-sm md:font-semibold mt-2 text-center">All Dry Fruits</p>
@@ -279,7 +323,7 @@
                 <div onclick="showCatPage()" class="cursor-pointer flex flex-col items-center min-w-[80px]">
                     <!-- Gray background wrapper -->
                     <div class="bg-gray-300 rounded-full md:rounded-lg">
-                        <img src="./Assets/Images/cleaning-essentials-bgremove.png"
+                        <img loading="lazy" src="./Assets/Images/cleaning-essentials-bgremove.webp"
                             class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] shadow-lg rounded-full md:rounded-lg object-contain" />
                     </div>
                     <p class="text-xs md:text-sm md:font-semibold mt-2 text-center">Cleaning Essentials</p>
@@ -288,7 +332,7 @@
                 <div onclick="showCatPage()" class="cursor-pointer flex flex-col items-center min-w-[80px]">
                     <!-- Gray background wrapper -->
                     <div class="bg-gray-300 rounded-full md:rounded-lg">
-                        <img src="./Assets/Images/seed-category.png"
+                        <img loading="lazy" src="./Assets/Images/seed-category.webp"
                             class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] shadow-lg rounded-full md:rounded-lg object-cover" />
                     </div>
                     <p class="text-xs md:text-sm md:font-semibold mt-2 text-center">Seeds</p>
@@ -297,7 +341,7 @@
                 <div onclick="showCatPage()" class="cursor-pointer flex flex-col items-center min-w-[80px]">
                     <!-- Gray background wrapper -->
                     <div class="bg-gray-300 rounded-full md:rounded-lg">
-                        <img src="./Assets/Images/kitchen-category.png"
+                        <img loading="lazy" src="./Assets/Images/kitchen-category.webp"
                             class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] shadow-lg rounded-full md:rounded-lg object-cover" />
                     </div>
                     <p class="text-xs md:text-sm md:font-semibold mt-2 text-center">Kitchen Essentials</p>
@@ -306,7 +350,7 @@
                 <div onclick="showCatPage()" class="cursor-pointer flex flex-col items-center min-w-[80px]">
                     <!-- Gray background wrapper -->
                     <div class="bg-gray-300 rounded-full md:rounded-lg">
-                        <img src="./Assets/Images/stationery-item-bgremove.png"
+                        <img loading="lazy" src="./Assets/Images/stationery-item-bgremove.webp"
                             class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] shadow-lg rounded-full md:rounded-lg object-cover" />
                     </div>
                     <p class="text-xs md:text-sm md:font-semibold mt-2 text-center">School & Office Supplies</p>
@@ -315,7 +359,7 @@
                 <div onclick="showCatPage()" class="cursor-pointer flex flex-col items-center min-w-[80px]">
                     <!-- Gray background wrapper -->
                     <div class="bg-gray-300 rounded-full md:rounded-lg">
-                        <img src="./Assets/Images/outdoor-category.png"
+                        <img loading="lazy" src="./Assets/Images/outdoor-category.webp"
                             class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] shadow-lg rounded-full md:rounded-lg object-cover" />
                     </div>
                     <p class="text-xs md:text-sm md:font-semibold mt-2 text-center">Outdoor Essentials</p>
@@ -324,7 +368,7 @@
                 <div onclick="showCatPage()" class="cursor-pointer flex flex-col items-center min-w-[80px]">
                     <!-- Gray background wrapper -->
                     <div class="bg-gray-300 rounded-full md:rounded-lg">
-                        <img src="./Assets/Images/livingroom-category.png"
+                        <img loading="lazy" src="./Assets/Images/livingroom-category.webp"
                             class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] shadow-lg rounded-full md:rounded-lg object-cover" />
                     </div>
                     <p class="text-xs md:text-sm md:font-semibold mt-2 text-center">Living Room Essentials</p>
@@ -333,7 +377,7 @@
                 <div onclick="showCatPage()" class="cursor-pointer flex flex-col items-center min-w-[80px]">
                     <!-- Gray background wrapper -->
                     <div class="bg-gray-300 rounded-full md:rounded-lg">
-                        <img src="./Assets/Images/dryfig-category.png"
+                        <img loading="lazy" src="./Assets/Images/dryfig-category.webp"
                             class="w-[80px] h-[80px] md:w-[100px] md:h-[100px] shadow-lg rounded-full md:rounded-lg object-cover" />
                     </div>
                     <p class="text-xs md:text-sm md:font-semibold mt-2 text-center">Dry Figs</p>
@@ -345,7 +389,7 @@
         <div class="mt-6 md:px-0">
             <div class="flex px-4 md:px-0 justify-between items-center">
                 <h2 class="text-xl md:text-2xl font-bold">Seed Products</h2>
-                <a class="text-green-600 font-medium">See all</a>
+                <a href="productby-category.html" class="text-green-600 font-medium">See all</a>
             </div>
 
             <!-- ================= HORIZONTAL PRODUCT SLIDER ================= -->
@@ -381,7 +425,8 @@
                     <div onclick="showProductDetail()"
                         class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                         <div class="relative">
-                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                            <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                                class="h-28 sm:h-32 mx-auto object-contain" />
 
                             <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
                            rounded-full flex items-center gap-1 text-xs font-medium shadow">
@@ -407,7 +452,8 @@
                     <div onclick="showProductDetail()"
                         class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                         <div class="relative">
-                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                            <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                                class="h-28 sm:h-32 mx-auto object-contain" />
 
                             <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
                            rounded-full flex items-center gap-1 text-xs font-medium shadow">
@@ -433,7 +479,8 @@
                     <div onclick="showProductDetail()"
                         class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                         <div class="relative">
-                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                            <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                                class="h-28 sm:h-32 mx-auto object-contain" />
 
                             <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
                            rounded-full flex items-center gap-1 text-xs font-medium shadow">
@@ -459,7 +506,8 @@
                     <div onclick="showProductDetail()"
                         class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                         <div class="relative">
-                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                            <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                                class="h-28 sm:h-32 mx-auto object-contain" />
 
                             <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
                            rounded-full flex items-center gap-1 text-xs font-medium shadow">
@@ -485,7 +533,8 @@
                     <div onclick="showProductDetail()"
                         class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                         <div class="relative">
-                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                            <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                                class="h-28 sm:h-32 mx-auto object-contain" />
 
                             <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
                            rounded-full flex items-center gap-1 text-xs font-medium shadow">
@@ -511,7 +560,8 @@
                     <div onclick="showProductDetail()"
                         class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                         <div class="relative">
-                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                            <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                                class="h-28 sm:h-32 mx-auto object-contain" />
 
                             <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
                            rounded-full flex items-center gap-1 text-xs font-medium shadow">
@@ -537,7 +587,8 @@
                     <div onclick="showProductDetail()"
                         class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                         <div class="relative">
-                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                            <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                                class="h-28 sm:h-32 mx-auto object-contain" />
 
                             <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
                            rounded-full flex items-center gap-1 text-xs font-medium shadow">
@@ -563,7 +614,8 @@
                     <div onclick="showProductDetail()"
                         class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                         <div class="relative">
-                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                            <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                                class="h-28 sm:h-32 mx-auto object-contain" />
 
                             <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
                            rounded-full flex items-center gap-1 text-xs font-medium shadow">
@@ -589,7 +641,8 @@
                     <div onclick="showProductDetail()"
                         class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                         <div class="relative">
-                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                            <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                                class="h-28 sm:h-32 mx-auto object-contain" />
 
                             <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
                            rounded-full flex items-center gap-1 text-xs font-medium shadow">
@@ -615,7 +668,8 @@
                     <div onclick="showProductDetail()"
                         class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                         <div class="relative">
-                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                            <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                                class="h-28 sm:h-32 mx-auto object-contain" />
 
                             <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
                            rounded-full flex items-center gap-1 text-xs font-medium shadow">
@@ -641,7 +695,8 @@
                     <div onclick="showProductDetail()"
                         class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                         <div class="relative">
-                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                            <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                                class="h-28 sm:h-32 mx-auto object-contain" />
 
                             <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
                            rounded-full flex items-center gap-1 text-xs font-medium shadow">
@@ -667,7 +722,8 @@
                     <div onclick="showProductDetail()"
                         class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
                         <div class="relative">
-                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+                            <img loading="lazy" src="./Assets/Images/seed-category.webp"
+                                class="h-28 sm:h-32 mx-auto object-contain" />
 
                             <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
                            rounded-full flex items-center gap-1 text-xs font-medium shadow">
@@ -708,7 +764,7 @@
 
 
         </div>
-       
+
 
     </main>
 
@@ -870,8 +926,8 @@
             <!-- APP LINKS -->
             <div class="flex items-center gap-4">
                 <span class="font-medium text-gray-700">Download App</span>
-                <img src="./Assets/Images/Playstore.png" class="h-8" alt="Play Store">
-                <img src="./Assets/Images/Appstore.png" class="h-8" alt="App Store">
+                <img loading="lazy" src="./Assets/Images/Playstore.webp" class="h-8" alt="Play Store">
+                <img loading="lazy" src="./Assets/Images/Appstore.webp" class="h-8" alt="App Store">
             </div>
 
             <!-- SOCIAL -->
@@ -938,7 +994,7 @@
 
             <!-- CART ITEM -->
             <div class="bg-gray-50 p-4 rounded-xl flex gap-3">
-                <img src="./Assets/Images/cleaning1.jpg" class="w-16 h-16 rounded-lg object-cover" />
+                <img loading="lazy" src="./Assets/Images/cleaning1.webp" class="w-16 h-16 rounded-lg object-cover" />
 
                 <div class="flex-1">
                     <p class="text-sm font-medium leading-tight">
@@ -956,7 +1012,7 @@
                 </div>
             </div>
             <div class="bg-gray-50 p-4 rounded-xl flex gap-3">
-                <img src="./Assets/Images/cleaning1.jpg" class="w-16 h-16 rounded-lg object-cover" />
+                <img loading="lazy" src="./Assets/Images/cleaning1.webp" class="w-16 h-16 rounded-lg object-cover" />
 
                 <div class="flex-1">
                     <p class="text-sm font-medium leading-tight">
@@ -974,7 +1030,7 @@
                 </div>
             </div>
             <div class="bg-gray-50 p-4 rounded-xl flex gap-3">
-                <img src="./Assets/Images/cleaning1.jpg" class="w-16 h-16 rounded-lg object-cover" />
+                <img loading="lazy" src="./Assets/Images/cleaning1.webp" class="w-16 h-16 rounded-lg object-cover" />
 
                 <div class="flex-1">
                     <p class="text-sm font-medium leading-tight">
@@ -992,7 +1048,7 @@
                 </div>
             </div>
             <div class="bg-gray-50 p-4 rounded-xl flex gap-3">
-                <img src="./Assets/Images/cleaning1.jpg" class="w-16 h-16 rounded-lg object-cover" />
+                <img loading="lazy" src="./Assets/Images/cleaning1.webp" class="w-16 h-16 rounded-lg object-cover" />
 
                 <div class="flex-1">
                     <p class="text-sm font-medium leading-tight">
@@ -1010,7 +1066,7 @@
                 </div>
             </div>
             <div class="bg-gray-50 p-4 rounded-xl flex gap-3">
-                <img src="./Assets/Images/cleaning1.jpg" class="w-16 h-16 rounded-lg object-cover" />
+                <img loading="lazy" src="./Assets/Images/cleaning1.webp" class="w-16 h-16 rounded-lg object-cover" />
 
                 <div class="flex-1">
                     <p class="text-sm font-medium leading-tight">
@@ -1120,6 +1176,92 @@
 
         </div>
     </div>
+
+    <!-- USER LOGIN MODAL -->
+    <div id="userLoginModal" class="fixed inset-0 z-[9999] hidden">
+
+        <!-- Backdrop -->
+        <div onclick="closeUserLoginModal()" class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+        <!-- Modal -->
+        <div class="absolute bottom-0 left-0 right-0
+               lg:relative lg:top-1/2 lg:-translate-y-1/2 lg:mx-auto
+               bg-white rounded-t-3xl lg:rounded-3xl
+               w-full lg:max-w-[480px]
+               px-6 py-8
+               max-h-[92vh] overflow-hidden">
+
+            <!-- LOGO -->
+            <div class="flex justify-center mb-4">
+                <img src="./Assets/Images/logo.webp" alt="Crawford" class="h-14 object-contain">
+            </div>
+
+            <!-- HEADING -->
+            <h2 class="text-2xl font-bold text-center text-gray-900">
+                India’s Largest Online<br>Crawford Market
+            </h2>
+
+            <p class="text-center text-sm text-gray-500 mt-1">
+                Login or signup to continue
+            </p>
+
+            <!-- PHONE SECTION -->
+            <div id="user-phone-section" class="mt-8">
+
+                <label class="text-sm font-medium text-gray-700">
+                    Phone number
+                </label>
+
+                <div
+                    class="mt-2 flex items-center gap-3 border border-gray-300 rounded-xl px-4 py-3 focus-within:border-green-600">
+
+                    <span class="text-gray-800 font-medium">+91</span>
+
+                    <input type="tel" placeholder="Enter mobile number" class="flex-1 outline-none text-base" />
+                </div>
+
+                <button onclick="showUserOTP()" class="w-full mt-6 bg-green-600 hover:bg-green-700
+                       text-white py-3.5 rounded-xl font-semibold text-base">
+                    Continue
+                </button>
+            </div>
+
+            <!-- OTP SECTION -->
+            <div id="user-otp-section" class="hidden mt-8">
+
+                <p class="text-sm text-gray-600 text-center">
+                    Enter the 4-digit OTP sent to your number
+                </p>
+
+                <!-- OTP INPUTS -->
+                <div class="mt-5 flex justify-center gap-4">
+                    <input maxlength="1" class="user-otp-input" />
+                    <input maxlength="1" class="user-otp-input" />
+                    <input maxlength="1" class="user-otp-input" />
+                    <input maxlength="1" class="user-otp-input" />
+                </div>
+
+                <button onclick="submitUserOTP()" class="w-full mt-6 bg-green-600 hover:bg-green-700
+                       text-white py-3.5 rounded-xl font-semibold text-base">
+                    Verify OTP
+                </button>
+
+                <button onclick="resetUserLogin()" class="mt-4 block mx-auto text-green-600 text-sm font-medium">
+                    Change number
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- SUCCESS TOAST -->
+    <div id="loginSuccessToast" class="hidden fixed bottom-6 inset-x-4 mx-auto max-w-fit
+           bg-green-600 text-white px-5 py-3
+           rounded-xl text-sm shadow-lg z-[9999]">
+        Login successful 🎉
+    </div>
+
 
 
 

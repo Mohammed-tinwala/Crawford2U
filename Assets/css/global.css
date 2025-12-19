@@ -59,3 +59,26 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out;
 }
+
+.user-otp-input {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        border: 1.5px solid #d1d5db;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600;
+        outline: none;
+    }
+
+    .user-otp-input:focus {
+        border-color: #16a34a;
+        box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.15);
+    }
+
+    @media (max-width: 360px) {
+        .user-otp-input {
+            width: 48px;
+            height: 48px;
+        }
+    }

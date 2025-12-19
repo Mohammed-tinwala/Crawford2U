@@ -53,6 +53,10 @@ function showProductbyCat() {
     window.location.href = "productby-category.html";
 }
 
+function showLogin() {
+    window.location.href = "login.html";
+}
+
 function goBack() {
     window.history.back();
 }
@@ -286,9 +290,9 @@ window.addEventListener("load", updateControls);
 
 // Product Image Slider
 const images = [
-    "./Assets/Images/stationery-item-bgremove.png",
-    "./Assets/Images/Bathroom-products-bg-remove.png",
-    "./Assets/Images/cleaning-essentials-bgremove.png"
+    "./Assets/Images/stationery-item-bgremove.webp",
+    "./Assets/Images/Bathroom-products-bg-remove.webp",
+    "./Assets/Images/cleaning-essentials-bgremove.webp"
 ];
 
 let currentIndex = 0;
@@ -320,6 +324,82 @@ dot.forEach((dot, index) => {
         updateSlider();
     });
 });
+
+// Initial display
+function toggleLoginDropdown() {
+    const dropdown = document.getElementById("loginDropdown");
+    dropdown.classList.toggle("hidden");
+}
+
+// Close dropdown when clicking outside
+document.addEventListener("click", function (e) {
+    const btn = e.target.closest("button");
+    const dropdown = document.getElementById("loginDropdown");
+
+    if (!e.target.closest("#loginDropdown") &&
+        !e.target.closest("button[onclick='toggleLoginDropdown()']")) {
+        dropdown.classList.add("hidden");
+    }
+});
+
+// User Login Modal
+function openUserLoginModal() {
+    document.getElementById("userLoginModal").classList.remove("hidden");
+    document.body.classList.add("overflow-hidden");
+}
+
+function closeUserLoginModal() {
+    document.getElementById("userLoginModal").classList.add("hidden");
+    document.body.classList.remove("overflow-hidden");
+    resetUserLogin();
+}
+
+function showUserOTP() {
+    document.getElementById("user-phone-section").classList.add("hidden");
+    document.getElementById("user-otp-section").classList.remove("hidden");
+    document.querySelector(".user-otp-input").focus();
+}
+
+function resetUserLogin() {
+    document.getElementById("user-phone-section").classList.remove("hidden");
+    document.getElementById("user-otp-section").classList.add("hidden");
+}
+
+function submitUserOTP() {
+    const toast = document.getElementById("loginSuccessToast");
+    toast.classList.remove("hidden");
+
+    setTimeout(() => {
+        toast.classList.add("hidden");
+        window.location.href = "index.html";
+    }, 1500);
+}
+
+// OTP Auto Focus
+document.addEventListener("input", function (e) {
+    if (e.target.classList.contains("user-otp-input")) {
+        if (e.target.value.length === 1) {
+            const next = e.target.nextElementSibling;
+            if (next) next.focus();
+        }
+    }
+});
+
+function showMessageToast() {
+    const toast = document.getElementById("messageToast");
+
+    toast.classList.remove("hidden");
+    toast.classList.add("animate-fadeIn");
+
+    setTimeout(() => {
+        toast.classList.add("hidden");
+        toast.classList.remove("animate-fadeIn");
+    }, 2000);
+}
+
+
+
+
 
 
 
