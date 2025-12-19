@@ -325,21 +325,19 @@ dot.forEach((dot, index) => {
     });
 });
 
-// Initial display
+// Login Dropdown
 function toggleLoginDropdown() {
-    const dropdown = document.getElementById("loginDropdown");
-    dropdown.classList.toggle("hidden");
+  const dropdown = document.getElementById("loginDropdown");
+  dropdown.classList.toggle("hidden");
 }
 
-// Close dropdown when clicking outside
 document.addEventListener("click", function (e) {
-    const btn = e.target.closest("button");
-    const dropdown = document.getElementById("loginDropdown");
+  const dropdown = document.getElementById("loginDropdown");
+  const loginBtn = document.getElementById("loginBtn");
 
-    if (!e.target.closest("#loginDropdown") &&
-        !e.target.closest("button[onclick='toggleLoginDropdown()']")) {
-        dropdown.classList.add("hidden");
-    }
+  if (!dropdown.contains(e.target) && !loginBtn.contains(e.target)) {
+    dropdown.classList.add("hidden");
+  }
 });
 
 // User Login Modal
