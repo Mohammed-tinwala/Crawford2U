@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Crawford</title>
+
+    <link rel="stylesheet" href="/Assets/css/global.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <!-- DESKTOP HEADER -->
+    <header class="hidden md:block w-full bg-white border-b">
+
+        <!-- TOP NAVBAR -->
+        <div class="w-full px-6">
+            <div class="flex items-center justify-between h-[72px] gap-6">
+
+                <!-- LOGO -->
+                <h1 class="flex text-3xl font-bold text-yellow-500 cursor-pointer" onclick="showHome()">
+                    <img src="/Assets/Images/logo.png" alt="crawford2U Logo" class="inline h-10 mr-0" />
+                    crawford <span class="text-green-600">2U</span>
+                </h1>
+
+                <!-- ACTIONS -->
+                <div class="flex items-center gap-6 cursor-pointer">
+                    <button onclick="login()" class="text-sm font-medium">Login</button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative h-[50vh] md:h-[60vh] flex items-center justify-center">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216"
+            class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <div class="relative z-10 text-center px-6">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-3">
+                Contact Crawford
+            </h1>
+            <p class="text-gray-200 max-w-xl mx-auto">
+                We’re here to help. Reach out anytime.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACT INFO -->
+    <section class="py-16 px-6 md:px-16 bg-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
+
+            <div class="bg-gray-50 rounded-2xl p-6 shadow-sm text-center">
+                <div class="text-green-600 text-3xl mb-3">📧</div>
+                <h3 class="font-semibold text-lg">Email Us</h3>
+                <p class="text-gray-600 text-sm mt-1">
+                    info@crawford2u.in
+                </p>
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl p-6 shadow-sm text-center">
+                <div class="text-green-600 text-3xl mb-3">📞</div>
+                <h3 class="font-semibold text-lg">Call Us</h3>
+                <p class="text-gray-600 text-sm mt-1">
+                    +91 98765 43210
+                </p>
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl p-6 shadow-sm text-center">
+                <div class="text-green-600 text-3xl mb-3">📍</div>
+                <h3 class="font-semibold text-lg">Office Address</h3>
+                <p class="text-gray-600 text-sm mt-1">
+                    F.K Motiwala & Co 92 Sarang Street, Crawford Market, Mumbai - 400003
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FORM + MAP -->
+    <section class="py-16 px-6 md:px-16">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+
+            <!-- CONTACT FORM -->
+            <div class="bg-white p-8 rounded-2xl shadow-md">
+                <h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
+
+                <form class="space-y-4">
+                    <div>
+                        <label class="text-sm font-medium">Your Name</label>
+                        <input type="text" placeholder="Enter your name"
+                            class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    </div>
+
+                    <div>
+                        <label class="text-sm font-medium">Email Address</label>
+                        <input type="email" placeholder="Enter your email"
+                            class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    </div>
+
+                    <div>
+                        <label class="text-sm font-medium">Message</label>
+                        <textarea rows="4" placeholder="Write your message..."
+                            class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- MAP -->
+            <div class="rounded-2xl overflow-hidden shadow-md h-[400px]">
+                <iframe src="https://www.google.com/maps?q=F.K%20Motiwala%20%26%20Co%2092%20Sarang%20Street%20Crawford%20Market%20Mumbai%20400003&output=embed"
+                    class="w-full h-full border-0" loading="lazy"></iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DESKTOP FOOTER -->
+    <footer class="hidden md:block bg-white border-t pt-14 pb-6">
+
+        <!-- TOP FOOTER -->
+        <div class="w-full px-12">
+            <div class="grid grid-cols-12 gap-10 text-sm text-gray-600">
+
+                <!-- USEFUL LINKS -->
+                <div class="col-span-2">
+                    <h3 class="text-black font-semibold mb-4">Useful Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- PARTNER -->
+                <div class="col-span-2 mt-8">
+                    <ul class="space-y-2">
+                        <li><a href="#">Partner</a></li>
+                        <li><a href="#">Franchise</a></li>
+                        <li><a href="#">Seller</a></li>
+                        <li><a href="#">Warehouse</a></li>
+                        <li><a href="#">Deliver</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </div>
+
+                <!-- RECIPES -->
+                <div class="col-span-2 mt-8">
+                    <ul class="space-y-2">
+                        <li><a href="#">Recipes</a></li>
+                        <li><a href="#">Bistro</a></li>
+                        <li><a href="#">District</a></li>
+                    </ul>
+                </div>
+
+                <!-- CATEGORIES TITLE -->
+                <div class="col-span-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-black font-semibold">Categories</h3>
+                        <a href="#" class="text-green-600 text-sm font-medium">see all</a>
+                    </div>
+
+                    <!-- CATEGORY GRID -->
+                    <div class="grid grid-cols-3 gap-y-2 gap-x-8">
+
+                        <ul class="space-y-2">
+                            <li>Vegetables & Fruits</li>
+                            <li>Cold Drinks & Juices</li>
+                            <li>Bakery & Biscuits</li>
+                            <li>Dry Fruits, Masala & Oil</li>
+                            <li>Paan Corner</li>
+                            <li>Pharma & Wellness</li>
+                            <li>Personal Care</li>
+                            <li>Kitchen & Dining</li>
+                            <li>Stationery Needs</li>
+                            <li>Print Store</li>
+                        </ul>
+
+                        <ul class="space-y-2">
+                            <li>Dairy & Breakfast</li>
+                            <li>Instant & Frozen Food</li>
+                            <li>Sweet Tooth</li>
+                            <li>Sauces & Spreads</li>
+                            <li>Organic & Premium</li>
+                            <li>Cleaning Essentials</li>
+                            <li>Pet Care</li>
+                            <li>Fashion & Accessories</li>
+                            <li>Books</li>
+                            <li>E-Gift Cards</li>
+                        </ul>
+
+                        <ul class="space-y-2">
+                            <li>Munchies</li>
+                            <li>Tea, Coffee & Milk Drinks</li>
+                            <li>Atta, Rice & Dal</li>
+                            <li>Chicken, Meat & Fish</li>
+                            <li>Baby Care</li>
+                            <li>Home Furnishing & Decor</li>
+                            <li>Beauty & Cosmetics</li>
+                            <li>Electronics & Electricals</li>
+                            <li>Toys & Games</li>
+                            <li>Rakhi Gifts</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="border-t mt-12"></div>
+
+        <!-- BOTTOM FOOTER -->
+        <div class="w-full px-12 pt-6 flex items-center justify-between text-sm text-gray-500">
+
+            <!-- COPYRIGHT -->
+            <p>© Crawford Commerce Pvt Ltd, 2016-2025</p>
+
+            <!-- DOWNLOAD APP -->
+            <div class="flex items-center gap-4">
+                <span class="font-medium text-gray-700">Download App</span>
+                <img src="/Assets/Images/Playstore.png" class="h-8" alt="App Store">
+                <img src="/Assets/Images/Appstore.png" class="h-8" alt="Play Store">
+            </div>
+
+            <!-- SOCIAL ICONS -->
+            <div class="flex items-center gap-4 text-black">
+                <span class="material-icons">facebook</span>
+                <span class="material-icons">close</span>
+                <span class="material-icons">camera_alt</span>
+                <span class="material-icons">linkedin</span>
+                <span class="material-icons">copyright</span>
+            </div>
+
+        </div>
+
+        <!-- DISCLAIMER -->
+        <div class="w-full px-12 pt-4 text-xs text-gray-400 leading-relaxed">
+            “Crawford” is owned and managed by Crawford Commerce Private Limited and is not related or interconnected
+            in whatsoever manner or nature to any other similar services.
+        </div>
+    </footer>
+
+
+    <script src="/Assets/js/main.js"></script>
+
+</body>
+
+</html>

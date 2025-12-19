@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --background: #f7f8f7;
+  /* Dull White */
+  --primary: #53B175;
+  /* Green */
+  --primary-dark: #234B32;
+  /* Dark Green */
+  --secondary-color: #facc15;
+  /* Yellow */
+  --text-color: #111827;
+  /* Dark Gray */
+  --label-color: #6b7280;
+  /* Light Gray */
+}
+
+.category-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE & Edge */
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-scroll::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari */
+}
+
+html,
+body {
+  background-color: var(--background) !important;
+  color: var(--text-color) !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}

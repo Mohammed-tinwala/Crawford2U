@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crawford – Categories</title>
+    <link rel="stylesheet" href="./Assets/css/global.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- PAGE WRAPPER -->
+    <main class="max-w-md mx-auto md:max-w-6xl px-4 pb-[80px]">
+
+        <!-- HEADER -->
+        <div class="pt-6 text-center">
+            <h1 class="text-xl font-bold">Find Category</h1>
+        </div>
+
+        <!-- SEARCH -->
+        <form class="mt-4 flex gap-3">
+            <div class="flex items-center bg-[#F0F0F0] rounded-[8px] px-4 py-3 flex-1">
+                <span class="material-icons">search</span>
+                <input id="searchInput" type="text" class="bg-[#F0F0F0] ml-2 w-full outline-none text-sm" />
+            </div>
+            <button class="bg-[#F0F0F0] rounded-[8px] px-4">
+                <span class="material-icons text-gray-700">tune</span>
+            </button>
+        </form>
+
+        <!-- CATEGORY GRID -->
+        <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-2">
+
+            <!-- CARD -->
+            <div onclick="showCatPage()" class="rounded-3xl border-2 border-green-300 bg-green-50 p-4 text-center">
+                <img src="./Assets/Images/cleaning-essentials-bgremove.png" class="h-28 mx-auto object-contain" />
+                <h3 class="mt-4 text-lg font-bold" style="line-height: 22px;">Cleaning Essentials</h3>
+            </div>
+
+            <div onclick="showCatPage()" class="rounded-3xl border-2 border-orange-300 bg-orange-50 p-4 text-center">
+                <img src="./Assets/Images/stationery-item-bgremove.png" class="h-28 mx-auto object-contain" />
+                <h3 class="mt-4 text-lg font-bold" style="line-height: 22px;">Stationery Supplies</h3>
+            </div>
+
+            <div onclick="showCatPage()" class="rounded-3xl border-2 border-pink-300 bg-pink-50 p-4 text-center">
+                <img src="./Assets/Images/Bathroom-products-bg-remove.png" class="h-28 mx-auto object-contain" />
+                <h3 class="mt-4 text-lg font-bold" style="line-height: 22px;">Bathroom Essentials</h3>
+            </div>
+
+            <div onclick="showCatPage()" class="rounded-3xl border-2 border-purple-300 bg-purple-50 p-4 text-center">
+                <img src="./Assets/Images/mixed-nuts-bgremove.png" class="h-28 mx-auto object-contain rounded-xl" />
+                <h3 class="mt-4 text-lg font-bold" style="line-height: 22px;">All Dry Fruits</h3>
+            </div>
+
+            <div onclick="showCatPage()" class="rounded-3xl border-2 border-yellow-300 bg-yellow-50 p-4 text-center">
+                <img src="./Assets/Images/kitchen-bgremove.png" class="h-28 mx-auto object-contain rounded-xl" />
+                <h3 class="mt-4 text-lg font-bold" style="line-height: 22px;">Kitchen Essentials</h3>
+            </div>
+
+            <div onclick="showCatPage()" class="rounded-3xl border-2 border-blue-300 bg-blue-50 p-4 text-center">
+                <img src="./Assets/Images/baverages.png" class="h-28 mx-auto object-containr" />
+                <h3 class="mt-4 text-lg font-bold" style="line-height: 22px;">Beverages</h3>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- BOTTOM NAV (APP STYLE) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t md:hidden">
+        <div class="flex justify-around py-3">
+            <a onclick="showHome()" class="flex flex-col items-center text-gray-500">
+                <span class="material-icons">home</span>
+                <span class="text-xs">Home</span>
+            </a>
+            <a onclick="showCat()" class="flex flex-col items-center text-green-600">
+                <span class="material-icons">grid_view</span>
+                <span class="text-xs">Categories</span>
+            </a>
+            <a onclick="showCart()" class="flex flex-col items-center text-gray-500">
+                <span class="material-icons">shopping_cart</span>
+                <span class="text-xs">Cart</span>
+            </a>
+            <a onclick="showAccount()" class="flex flex-col items-center text-gray-500">
+                <span class="material-icons">person</span>
+                <span class="text-xs">Account</span>
+            </a>
+        </div>
+    </div>
+
+
+    <script>
+        function showHome() {
+            window.location.href = "index.html"
+        }
+
+        function showCat() {
+            window.location.href = "categories.html"
+        }
+
+        function showCart() {
+            window.location.href = "cart.html"
+        }
+
+        function showAccount() {
+            window.location.href = "account.html"
+        }
+
+        function showCatPage() {
+            window.location.href = "productby-category.html"
+        }
+
+        // Searchbar Animation 
+        const placeholders = [
+            "Search Products",
+            "Search Cleaning Items",
+            "Search Dry Fruits",
+            "Search Stationery",
+            "Search Home Essentials"
+        ];
+
+        const input = document.getElementById("searchInput");
+
+        let placeholderIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typePlaceholder() {
+            const currentText = placeholders[placeholderIndex];
+
+            if (!isDeleting) {
+                // Typing
+                input.placeholder = currentText.slice(0, charIndex + 1);
+                charIndex++;
+
+                if (charIndex === currentText.length) {
+                    setTimeout(() => isDeleting = true, 1200);
+                }
+            } else {
+                // Deleting
+                input.placeholder = currentText.slice(0, charIndex - 1);
+                charIndex--;
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    placeholderIndex = (placeholderIndex + 1) % placeholders.length;
+                }
+            }
+
+            const speed = isDeleting ? 50 : 80;
+            setTimeout(typePlaceholder, speed);
+        }
+
+        typePlaceholder();
+    </script>
+</body>
+
+</html>

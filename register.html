@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawford2U | Sign Up</title>
+    <link rel="stylesheet" href="./Assets/css/global.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./Assets/css/global.css">
+
+    <style>
+        .underline-input {
+            border-bottom: 1px solid #d1d5db;
+        }
+
+        .underline-input:focus {
+            border-bottom: 1px solid #6b7280;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .animate-none {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen fade-in relative lg:animate-none">
+
+    <!-- DESKTOP HERO IMAGE + OVERLAY -->
+    <div class="hidden lg:block fixed inset-0 w-full h-full">
+        <!-- Background Image -->
+        <img src="./Assets/Images/market-image.webp" class="w-full h-full object-cover" alt="Hero Image">
+
+        <!-- Black Overlay -->
+        <div class="absolute inset-0 bg-black/70"></div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toastBox" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+    <!-- MAIN CONTENT WRAPPER (Always on Top of Hero) -->
+    <div
+        class="flex flex-col items-center px-6 pt-10 pb-10 lg:min-h-screen lg:justify-center lg:pt-0 lg:pb-0 relative z-10">
+        <!-- Logo -->
+        <img src="./Assets/Images/logo.png" class="w-20 mb-8 fade-in" alt="Crawford2U Logo">
+
+        <!-- Signup Box -->
+        <div
+            class="w-full max-w-md lg:bg-white/20 lg:backdrop-blur-xl border border-white/30 lg:shadow-2xl lg:rounded-3xl lg:p-6 fade-in">
+
+            <h1 class="text-3xl font-semibold text-gray-900 lg:text-white">Sign Up</h1>
+            <p class="text-gray-500 lg:text-gray-300 mt-1 mb-4">Enter your credentials to continue</p>
+
+            <!-- Username -->
+            <label class="text-gray-700 lg:text-white font-medium">Username</label>
+            <input id="username" type="text" placeholder="Enter username"
+                class="w-full mt-1 p-3 rounded-lg bg-gray-200  underline-input outline-none text-gray-900" />
+
+            <!-- Email -->
+            <label class="text-gray-700 lg:text-white font-medium mt-6 block">Email</label>
+            <div class="relative">
+                <input id="email" type="email" placeholder="Enter email"
+                    class="w-full p-3 rounded-lg mt-1 bg-gray-200 underline-input outline-none text-gray-900" />
+                <span id="emailCheck" class="material-icons text-green-600 absolute right-2 top-4 hidden">check</span>
+            </div>
+
+            <!-- Password -->
+            <label class="text-gray-700 lg:text-white font-medium mt-6 block">Password</label>
+            <div class="relative">
+                <input id="password" type="password" placeholder="Enter password"
+                    class="w-full mt-1 p-3 rounded-lg bg-gray-200 underline-input outline-none text-gray-900" />
+                <span id="togglePass"
+                    class="material-icons absolute right-2 top-4 text-gray-500 cursor-pointer">visibility_off</span>
+            </div>
+
+            <!-- Terms -->
+            <p class="mt-2 text-gray-600 lg:text-gray-300 text-sm leading-6">
+                By continuing you agree to our
+                <a href="#" class="text-green-600 font-medium">Terms of Service</a>
+                and
+                <a href="#" class="text-green-600 font-medium">Privacy Policy</a>.
+            </p>
+
+            <!-- Submit -->
+            <button id="submitBtn"
+                class="w-full mt-4 bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl text-lg font-semibold shadow-md transition flex justify-center items-center gap-2">
+                <span id="btnText">Sign Up</span>
+                <span id="loader" class="hidden material-icons animate-spin">autorenew</span>
+            </button>
+
+            <p class="mt-4 text-center text-gray-700 lg:text-gray-300 font-medium">
+                Already have an account?
+                <a href="/login.html" class="text-green-600 font-semibold">Sign in</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- JS (same as before) -->
+    <script>
+        function showToast(message, type = "success") {
+            const box = document.getElementById("toastBox");
+            const toast = document.createElement("div");
+
+            toast.className = `px-4 py-3 rounded-lg text-white shadow-lg flex items-center gap-3 
+                ${type === "success" ? "bg-green-600" : "bg-red-600"} animate-slide-in`;
+
+            toast.innerHTML = `<span class="material-icons">${type === "success" ? "check_circle" : "error"}</span> 
+                               <p>${message}</p>`;
+
+            box.appendChild(toast);
+
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        document.getElementById("email").addEventListener("input", (e) => {
+            const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
+            document.getElementById("emailCheck").classList.toggle("hidden", !valid);
+        });
+
+        document.getElementById("togglePass").addEventListener("click", () => {
+            const input = document.getElementById("password");
+            const icon = document.getElementById("togglePass");
+            const isPassword = input.type === "password";
+
+            input.type = isPassword ? "text" : "password";
+            icon.textContent = isPassword ? "visibility" : "visibility_off";
+        });
+
+        document.getElementById("submitBtn").addEventListener("click", async () => {
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (!username || !email || !password) {
+                showToast("All fields are required!", "error");
+                return;
+            }
+
+            const btn = document.getElementById("submitBtn");
+            const loader = document.getElementById("loader");
+            const btnText = document.getElementById("btnText");
+
+            btn.disabled = true;
+            loader.classList.remove("hidden");
+            btnText.textContent = "Please wait...";
+
+            try {
+                const res = await fetch("/api/signup.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, email, password })
+                });
+
+                const data = await res.json();
+
+                if (data.status === "success") {
+                    showToast("Signup successful!");
+                    setTimeout(() => window.location.href = "/login.html", 1200);
+                } else {
+                    showToast(data.message || "Signup failed", "error");
+                }
+            } catch (e) {
+                showToast("Signup successful!");
+            }
+
+            loader.classList.add("hidden");
+            btnText.textContent = "Sign Up";
+            btn.disabled = false;
+        });
+    </script>
+
+</body>
+
+</html>

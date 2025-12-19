@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crawford – My Cart</title>
+    <link rel="stylesheet" href="./Assets/css/global.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- PAGE WRAPPER -->
+    <div class="max-w-md mx-auto md:max-w-5xl pb-[140px]">
+
+        <!-- HEADER -->
+        <div class="pt-6 pb-4 text-center">
+            <h1 class="text-xl font-bold">My Cart</h1>
+        </div>
+
+        <hr>
+
+        <!-- CART LIST -->
+        <div class="px-4">
+
+            <!-- ITEM -->
+            <div class="flex items-center gap-4 py-6 border-b">
+                <img src="./Assets/Images/mixed-nuts-bgremove.png" class="w-16 h-16 object-contain rounded-lg" />
+
+                <div class="flex-1">
+                    <h3 class="font-semibold text-lg">Dry Fruits</h3>
+                    <p class="text-gray-400 text-sm">1kg, Price</p>
+
+                    <div class="flex items-center gap-4 mt-4">
+                        <button class="text-gray-400 text-2xl">−</button>
+                        <div class="w-12 h-10 border rounded-xl flex items-center justify-center font-semibold">1</div>
+                        <button class="text-green-600 text-2xl">+</button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-end">
+                    <button class="text-gray-300 mb-4">
+                        <span class="material-icons">close</span>
+                    </button>
+                    <p class="text-xl font-bold">$4.99</p>
+                </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-center gap-4 py-6 border-b">
+                <img src="./Assets/Images/stationery-item-bgremove.png" class="w-16 h-16 object-contain rounded-lg" />
+
+                <div class="flex-1">
+                    <h3 class="font-semibold text-lg">Stationery Items</h3>
+                    <p class="text-gray-400 text-sm">1pcs, Price</p>
+
+                    <div class="flex items-center gap-4 mt-4">
+                        <button class="text-gray-400 text-2xl">−</button>
+                        <div class="w-12 h-10 border rounded-xl flex items-center justify-center font-semibold">1</div>
+                        <button class="text-green-600 text-2xl">+</button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-end">
+                    <button class="text-gray-300 mb-4">
+                        <span class="material-icons">close</span>
+                    </button>
+                    <p class="text-xl font-bold">$1.99</p>
+                </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-center gap-4 py-6 border-b">
+                <img src="./Assets/Images/steelbottle-bgremove.png" class="w-16 h-16 object-contain rounded-lg" />
+
+                <div class="flex-1">
+                    <h3 class="font-semibold text-lg">Steel Water Bottle</h3>
+                    <p class="text-gray-400 text-sm">1pcs, Price</p>
+
+                    <div class="flex items-center gap-4 mt-4">
+                        <button class="text-gray-400 text-2xl">−</button>
+                        <div class="w-12 h-10 border rounded-xl flex items-center justify-center font-semibold">1</div>
+                        <button class="text-green-600 text-2xl">+</button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-end">
+                    <button class="text-gray-300 mb-4">
+                        <span class="material-icons">close</span>
+                    </button>
+                    <p class="text-xl font-bold">$3.00</p>
+                </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-center gap-4 py-6">
+                <img src="./Assets/Images/cleaning-essentials-bgremove.png"
+                    class="w-16 h-16 object-contain rounded-lg" />
+
+                <div class="flex-1">
+                    <h3 class="font-semibold text-lg">Cleaning Broom</h3>
+                    <p class="text-gray-400 text-sm">4pcs, Price</p>
+
+                    <div class="flex items-center gap-4 mt-4">
+                        <button class="text-gray-400 text-2xl">−</button>
+                        <div class="w-12 h-10 border rounded-xl flex items-center justify-center font-semibold">1</div>
+                        <button class="text-green-600 text-2xl">+</button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-end">
+                    <button class="text-gray-300 mb-4">
+                        <span class="material-icons">close</span>
+                    </button>
+                    <p class="text-xl font-bold">$2.99</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CHECKOUT BAR -->
+    <div class="fixed bottom-[84px] left-0 right-0 px-4">
+        <button id="openCheckout"
+            class="w-full bg-green-500 text-white rounded-xl py-4 flex justify-between items-center px-6 text-lg font-semibold shadow-lg">
+            <span>Go to Checkout</span>
+            <span class="bg-green-600 px-4 py-1 rounded-xl">$12.96</span>
+        </button>
+
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t md:hidden">
+        <div class="flex justify-around py-3">
+            <a onclick="showHome()" class="flex flex-col items-center text-gray-500">
+                <span class="material-icons">home</span>
+                <span class="text-xs">Home</span>
+            </a>
+            <a onclick="showCat()" class="flex flex-col items-center text-gray-500">
+                <span class="material-icons">grid_view</span>
+                <span class="text-xs">Categories</span>
+            </a>
+            <a onclick="showCart()" class="flex flex-col items-center text-green-600">
+                <span class="material-icons">shopping_cart</span>
+                <span class="text-xs">Cart</span>
+            </a>
+            <a onclick="showAccount()" class="flex flex-col items-center text-gray-500">
+                <span class="material-icons">person</span>
+                <span class="text-xs">Account</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div id="checkoutOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden"></div>
+
+    <!-- CHECKOUT SLIDER -->
+    <div id="checkoutSheet" class="fixed bottom-0 left-0 right-0 z-50
+           bg-white rounded-t-3xl
+           translate-y-full transition-transform duration-300
+           max-h-[90vh] overflow-y-auto
+           md:left-1/2 md:-translate-x-1/2 md:max-w-md">
+
+        <!-- DRAG BAR -->
+        <div class="flex justify-center py-3">
+            <div class="w-12 h-1.5 bg-gray-300 rounded-full"></div>
+        </div>
+
+        <!-- HEADER -->
+        <div class="px-6 flex justify-between items-center">
+            <h2 class="text-xl font-bold">Checkout</h2>
+            <button onclick="closeCheckout()" class="text-gray-400">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+
+        <!-- ADDRESS -->
+        <div class="px-6 mt-6">
+            <p class="text-sm text-gray-400 mb-2">Deliver to</p>
+            <div class="border rounded-2xl p-4 flex justify-between items-start">
+                <div>
+                    <p class="font-semibold">Home</p>
+                    <p class="text-sm text-gray-500">
+                        21, MG Road, Mumbai, Maharashtra
+                    </p>
+                </div>
+                <button onclick="showLocationPage()" class="text-green-600 text-sm font-semibold">
+                    Change
+                </button>
+            </div>
+        </div>
+
+        <!-- ORDER SUMMARY -->
+        <div class="px-6 mt-6">
+            <p class="text-sm text-gray-400 mb-2">Order Summary</p>
+
+            <div class="space-y-3 text-sm">
+                <div class="flex justify-between">
+                    <span>Items total</span>
+                    <span>$12.97</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Delivery fee</span>
+                    <span class="text-green-600">FREE</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Taxes</span>
+                    <span>$0.50</span>
+                </div>
+
+                <hr>
+
+                <div class="flex justify-between font-bold text-lg">
+                    <span>Total</span>
+                    <span>$12.96</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAYMENT -->
+        <div class="px-6 mt-6">
+            <p class="text-sm text-gray-400 mb-2">Payment Method</p>
+
+            <div class="border rounded-2xl p-4 flex items-center gap-3">
+                <span class="material-icons text-green-600">account_balance_wallet</span>
+                <span class="font-medium">Cash on Delivery</span>
+            </div>
+        </div>
+
+        <!-- PLACE ORDER -->
+        <div class="px-6 mt-8 pb-6">
+            <button class="w-full bg-green-500 text-white py-4 rounded-2xl
+                   text-lg font-semibold shadow-lg
+                   active:scale-95 transition">
+                Place Order
+            </button>
+        </div>
+
+    </div>
+
+
+
+    <script src="/Assets/js/main.js"></script>
+    <script>
+        // Checkout Slider
+        const checkoutSheet = document.getElementById("checkoutSheet");
+        const checkoutOverlay = document.getElementById("checkoutOverlay");
+
+        function openCheckout() {
+            checkoutSheet.classList.remove("translate-y-full");
+            checkoutOverlay.classList.remove("hidden");
+        }
+
+        function closeCheckout() {
+            checkoutSheet.classList.add("translate-y-full");
+            checkoutOverlay.classList.add("hidden");
+        }
+
+        document.getElementById("openCheckout").addEventListener("click", openCheckout);
+        checkoutOverlay.addEventListener("click", closeCheckout);
+    </script>
+</body>
+
+</html>

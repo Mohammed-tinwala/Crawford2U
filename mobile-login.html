@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawford2U | Login</title>
+    <link rel="stylesheet" href="./Assets/css/global.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="bg-white min-h-screen flex flex-col">
+
+    <!-- Desktop Background -->
+    <div class="hidden lg:block fixed inset-0 w-full h-full">
+        <img src="./Assets/Images/mobile-input-image.png" class="w-full h-full object-cover" alt="Groceries Image">
+
+        <div class="absolute inset-0 bg-black/60"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="relative z-10 w-full">
+
+        <!-- Mobile Hero Image -->
+        <div class="lg:hidden flex justify-center">
+            <img src="./Assets/Images/mobile-input-image.png" alt="Groceries Image" class="
+            w-full
+            max-w-[460px]
+            md:w-[420px]
+            md:rounded-2xl
+            object-cover
+        " />
+        </div>
+
+        <div class="px-6 md:px-12 mt-6 lg:mt-0 lg:min-h-screen lg:flex lg:flex-col lg:justify-center lg:items-center">
+
+            <!-- Centered Content Wrapper -->
+            <div class="lg:w-[420px] w-full">
+
+                <!-- Heading -->
+                <h1 class="text-2xl lg:text-center font-bold text-gray-900 lg:text-white leading-tight">
+                    Get your crawford items<br>with crawford2U
+                </h1>
+
+                <!-- PHONE INPUT SECTION -->
+                <div id="phone-section">
+                    <!-- <label class="block mt-6 text-lg font-semibold lg:text-white">
+                        Enter your mobile number
+                    </label> -->
+                    <div class="flex items-center gap-3 mt-4 border-b border-gray-300 pb-3 lg:border-white">
+
+                        <img src="https://flagcdn.com/w40/in.png" class="w-8 h-6 rounded-sm object-cover"
+                            alt="India Flag">
+
+                        <span class="text-lg font-medium lg:text-white">+91</span>
+
+                        <input type="tel" placeholder="Enter your number"
+                            class="flex-1 outline-none text-base lg:placeholder:text-gray-200 lg:bg-transparent lg:text-white" />
+
+                        <!-- Green NEXT for mobile -->
+                        <button onclick="showOTP()" class="w-9 h-9 rounded-full lg:hidden bg-green-600 flex items-center justify-center 
+                   hover:bg-green-700 transition text-white shadow-md">
+                            <span class="material-icons text-[22px]">chevron_right</span>
+                        </button>
+                    </div>
+
+                    <!-- Desktop Submit Button -->
+                    <button onclick="showOTP()"
+                        class="hidden lg:flex w-full items-center justify-center gap-3 mt-3 bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl text-base font-medium">
+                        Submit
+                    </button>
+                </div>
+
+                <!-- OTP INPUT SECTION (Initially Hidden) -->
+                <div id="otp-section" class="hidden">
+
+                    <label class="block mt-6 text-lg font-semibold lg:text-white">
+                        Enter your 4 digit code
+                    </label>
+
+                    <div class="flex items-center gap-3 border-b border-gray-300 pb-3 mt-2 lg:border-white">
+                        <input type="text" maxlength="4" placeholder="----" class="flex-1 tracking-[0.5em] text-2xl outline-none text-gray-900 
+                   lg:bg-transparent lg:text-white lg:placeholder:text-gray-300" />
+
+                        <button onclick="showSuccessToast()" class="w-9 h-9 rounded-full lg:hidden bg-green-600 flex items-center
+                    justify-center
+                    hover:bg-green-700 transition text-white shadow-md">
+                            <span class="material-icons text-[22px]">chevron_right</span>
+                        </button>
+                    </div>
+
+                    <button onclick="showSuccessToast()"
+                        class="hidden lg:flex w-full items-center justify-center gap-3 mt-3 bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl text-base font-medium">
+                        Submit
+                    </button>
+
+
+
+
+                    <button onclick="hideOTP()" class="lg:text-white text-green-600 mt-3 ">Resend Code</a>
+
+                </div>
+
+
+                <!-- Divider -->
+                <div id="divider" class="flex items-center my-6">
+                    <div class="flex-1 border-t border-gray-300 lg:border-gray-500"></div>
+                    <span class="px-4 lg:text-gray-200 text-sm">Or connect with social media</span>
+                    <div class="flex-1 border-t border-gray-300 lg:border-gray-500"></div>
+                </div>
+
+                <!-- Google Button -->
+                <button id="google-btn"
+                    class="w-full flex items-center justify-center gap-3 bg-blue-500 text-white py-3 rounded-xl text-base font-medium">
+                    <span
+                        class="bg-white text-blue-600 w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg">G</span>
+                    Continue with Google
+                </button>
+
+                <!-- Facebook Button -->
+                <button id="facebook-btn"
+                    class="google-btn w-full flex items-center justify-center gap-3 bg-blue-700 text-white py-3 rounded-xl text-base font-medium mt-4">
+                    <span
+                        class="bg-white text-blue-700 w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold">f</span>
+                    Continue with Facebook
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- OTP SENT TOAST -->
+    <div id="otp-toast"
+        class="hidden fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-black text-white px-5 py-3 rounded-xl shadow-lg text-sm font-medium z-[9999]">
+        OTP Sent Successfully
+    </div>
+
+    <!-- SUCCESS TOAST -->
+    <div id="success-toast"
+        class="hidden fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-5 py-3 rounded-xl shadow-lg text-sm font-medium">
+        Login Successful
+    </div>
+
+
+
+
+
+    <script>
+        function showOTP() {
+            document.getElementById("phone-section").classList.add("hidden");
+            document.getElementById("otp-section").classList.remove("hidden");
+            document.getElementById("google-btn").classList.add("hidden");
+            document.getElementById("facebook-btn").classList.add("hidden");
+            document.getElementById("divider").classList.add("hidden");
+
+            // Show OTP sent toast
+            const toast = document.getElementById("otp-toast");
+            toast.classList.remove("hidden");
+
+            setTimeout(() => {
+                toast.classList.add("hidden");
+            }, 2000);
+        }
+
+
+        function hideOTP() {
+            document.getElementById("phone-section").classList.remove("hidden");
+            document.getElementById("otp-section").classList.add("hidden");
+            document.getElementById("google-btn").classList.remove("hidden");
+            document.getElementById("facebook-btn").classList.remove("hidden");
+            document.getElementById("divider").classList.remove("hidden");
+        }
+
+
+        // SHOW SUCCESS TOAST WHEN OTP SUBMIT BUTTON IS CLICKED
+        function showSuccessToast() {
+            const toast = document.getElementById("success-toast");
+            toast.classList.remove("hidden");
+
+            setTimeout(() => {
+                toast.classList.add("hidden");
+            }, 2000);
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>

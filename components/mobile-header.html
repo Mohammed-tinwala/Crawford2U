@@ -1,0 +1,93 @@
+<header class="pb-[40px] md:hidden">
+    <!-- HERO HEADER (LOCATION + SEARCH + BANNER) -->
+    <div
+        class="relative bg-[linear-gradient(to_bottom,var(--primary),var(--primary-dark))] rounded-b-3xl md:rounded-3xl px-4 pt-5 pb-28">
+
+        <!-- LOCATION -->
+        <div class="text-var(--text-color) text-sm flex items-center gap-1">
+            <span class="material-icons">location_on</span>
+            <div>
+                <p class="text-xs">Deliver to</p>
+                <p class="font-bold text-[18px]">Mumbai, Maharashtra, 23004</p>
+            </div>
+        </div>
+
+        <!-- SEARCH BAR -->
+        <form class="mt-4 flex gap-3">
+            <div class="flex items-center bg-[#F0F0F0] rounded-[8px] px-4 py-3 flex-1">
+                <span class="material-icons">search</span>
+                <input id="searchInput" type="text" class="bg-[#F0F0F0] ml-2 w-full outline-none text-sm" />
+            </div>
+            <button class="bg-[#F0F0F0] rounded-[8px] px-4">
+                <span class="material-icons text-gray-700">tune</span>
+            </button>
+        </form>
+
+
+        <!-- Banner -->
+        <!-- ABSOLUTE BANNER CAROUSEL (SAME POSITION & SIZE) -->
+        <div class="absolute left-4 right-4 -bottom-18 mt-4 md:left-1/2 md:-translate-x-1/2 md:max-w-xl z-10">
+
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden relative">
+
+                <!-- SLIDES -->
+                <div id="bannerCarousel"
+                    class="flex transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]">
+
+                    <!-- Slide 1 -->
+                    <div class="min-w-full flex items-center gap-4 p-4">
+                        <img src="./Assets/Images/stationery-item-bgremove.png" class="w-28 object-contain" />
+                        <div>
+                            <h3 class="text-xl font-bold">Stationery Items</h3>
+                            <p class="text-green-600 font-medium">Get Up To 40% OFF</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="min-w-full flex items-center gap-4 p-4">
+                        <img src="./Assets/Images/cleaning-essentials-bgremove.png" class="w-28 object-contain" />
+                        <div>
+                            <h3 class="text-xl font-bold">Cleaning Essentials</h3>
+                            <p class="text-green-600 font-medium">Flat 30% Discount</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="min-w-full flex items-center gap-4 p-4">
+                        <img src="./Assets/Images/mixed-nuts.jpg" class="w-28 object-cover rounded-xl" />
+                        <div>
+                            <h3 class="text-xl font-bold">Dry Fruits</h3>
+                            <p class="text-green-600 font-medium">Healthy & Fresh</p>
+                        </div>
+                    </div>
+
+                    <!-- CLONE OF SLIDE 1 (IMPORTANT) -->
+                    <div class="min-w-full flex items-center gap-4 p-4">
+                        <img src="./Assets/Images/stationery-item-bgremove.png" class="w-28 object-contain" />
+                        <div>
+                            <h3 class="text-xl font-bold">Stationery Items</h3>
+                            <p class="text-green-600 font-medium">Get Up To 40% OFF</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- INDICATORS -->
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                    <span class="banner-dot w-5 h-2 rounded-full bg-green-500"></span>
+                    <span class="banner-dot w-2 h-2 rounded-full bg-gray-300"></span>
+                    <span class="banner-dot w-2 h-2 rounded-full bg-gray-300"></span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- INDICATORS -->
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+            <span class="banner-dot w-5 h-2 rounded-full bg-green-500"></span>
+            <span class="banner-dot w-2 h-2 rounded-full bg-gray-300"></span>
+            <span class="banner-dot w-2 h-2 rounded-full bg-gray-300"></span>
+        </div>
+    </div>
+</header>

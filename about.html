@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Crawford</title>
+
+    <link rel="stylesheet" href="/Assets/css/global.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <!-- DESKTOP HEADER -->
+    <header class="hidden md:block w-full bg-white border-b">
+
+        <!-- TOP NAVBAR -->
+        <div class="w-full px-6">
+            <div class="flex items-center justify-between h-[72px] gap-6">
+
+                <!-- LOGO -->
+                <h1 class="flex text-3xl font-bold text-yellow-500 cursor-pointer" onclick="showHome()">
+                    <img src="/Assets/Images/logo.png" alt="crawford2U Logo" class="inline h-10 mr-0" />
+                    crawford <span class="text-green-600">2U</span>
+                </h1>
+
+                <!-- ACTIONS -->
+                <div class="flex items-center gap-6 cursor-pointer">
+                    <button onclick="login()" class="text-sm font-medium">Login</button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative h-[60vh] md:h-[70vh] flex items-center justify-center">
+
+        <!-- Back Button (Mobile only) -->
+        <button onclick="goBack()" class="absolute top-4 left-4 text-white md:hidden z-20">
+            <span class="material-icons text-2xl">
+                arrow_back_ios_new
+            </span>
+        </button>
+
+
+        <img src="/Assets/Images/market-image.webp" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/60"></div>
+
+        <div class="relative z-10 text-center px-6">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
+                About Crawford
+            </h1>
+            <p class="text-gray-200 max-w-2xl mx-auto text-lg">
+                Bringing Crawford Market to your doorstep — fresh, fast & reliable.
+            </p>
+        </div>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section class="py-16 px-6 md:px-16 bg-white">
+        <div class="grid md:grid-cols-2 gap-10 items-center max-w-7xl mx-auto">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e"
+                class="rounded-2xl shadow-lg w-full h-[320px] object-cover" />
+
+            <div>
+                <h2 class="text-3xl font-bold mb-4">Who We Are</h2>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Crawford is a modern online marketplace inspired by the iconic
+                    Crawford Market. We connect local vendors with customers through
+                    technology, making everyday shopping faster and easier.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    From fresh produce to daily essentials, we ensure quality,
+                    affordability, and lightning-fast delivery.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="py-14 bg-green-600 text-white">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center px-6">
+            <div>
+                <h3 class="text-3xl font-bold">10K+</h3>
+                <p class="text-sm mt-1">Happy Customers</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold">2K+</h3>
+                <p class="text-sm mt-1">Products</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold">500+</h3>
+                <p class="text-sm mt-1">Local Vendors</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold">30 min</h3>
+                <p class="text-sm mt-1">Avg Delivery</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR MISSION -->
+    <section class="py-16 px-6 md:px-16">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Our Mission</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto">
+                To empower local markets using technology and deliver the freshest
+                products to customers in minutes — without compromising quality or trust.
+            </p>
+        </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="py-16 bg-white px-6 md:px-16">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-10">What We Believe In</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <h3 class="text-xl font-semibold mb-2">Freshness First</h3>
+                    <p class="text-gray-600 text-sm">
+                        Every product is sourced daily from trusted vendors.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <h3 class="text-xl font-semibold mb-2">Speed Matters</h3>
+                    <p class="text-gray-600 text-sm">
+                        Ultra-fast delivery because your time is valuable.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <h3 class="text-xl font-semibold mb-2">Local Empowerment</h3>
+                    <p class="text-gray-600 text-sm">
+                        Supporting small businesses and local sellers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-green-700 text-white text-center px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Experience Crawford Today
+        </h2>
+        <p class="text-gray-200 mb-6">
+            Fast. Fresh. Trusted. Delivered to your door.
+        </p>
+        <button onclick="showHome()"
+            class="bg-white text-green-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+            Start Shopping
+        </button>
+    </section>
+
+    <!-- DESKTOP FOOTER -->
+    <footer class="hidden md:block bg-white border-t pt-14 pb-6">
+
+        <!-- TOP FOOTER -->
+        <div class="w-full px-12">
+            <div class="grid grid-cols-12 gap-10 text-sm text-gray-600">
+
+                <!-- USEFUL LINKS -->
+                <div class="col-span-2">
+                    <h3 class="text-black font-semibold mb-4">Useful Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- PARTNER -->
+                <div class="col-span-2 mt-8">
+                    <ul class="space-y-2">
+                        <li><a href="#">Partner</a></li>
+                        <li><a href="#">Franchise</a></li>
+                        <li><a href="#">Seller</a></li>
+                        <li><a href="#">Warehouse</a></li>
+                        <li><a href="#">Deliver</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </div>
+
+                <!-- RECIPES -->
+                <div class="col-span-2 mt-8">
+                    <ul class="space-y-2">
+                        <li><a href="#">Recipes</a></li>
+                        <li><a href="#">Bistro</a></li>
+                        <li><a href="#">District</a></li>
+                    </ul>
+                </div>
+
+                <!-- CATEGORIES TITLE -->
+                <div class="col-span-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-black font-semibold">Categories</h3>
+                        <a href="#" class="text-green-600 text-sm font-medium">see all</a>
+                    </div>
+
+                    <!-- CATEGORY GRID -->
+                    <div class="grid grid-cols-3 gap-y-2 gap-x-8">
+
+                        <ul class="space-y-2">
+                            <li>Vegetables & Fruits</li>
+                            <li>Cold Drinks & Juices</li>
+                            <li>Bakery & Biscuits</li>
+                            <li>Dry Fruits, Masala & Oil</li>
+                            <li>Paan Corner</li>
+                            <li>Pharma & Wellness</li>
+                            <li>Personal Care</li>
+                            <li>Kitchen & Dining</li>
+                            <li>Stationery Needs</li>
+                            <li>Print Store</li>
+                        </ul>
+
+                        <ul class="space-y-2">
+                            <li>Dairy & Breakfast</li>
+                            <li>Instant & Frozen Food</li>
+                            <li>Sweet Tooth</li>
+                            <li>Sauces & Spreads</li>
+                            <li>Organic & Premium</li>
+                            <li>Cleaning Essentials</li>
+                            <li>Pet Care</li>
+                            <li>Fashion & Accessories</li>
+                            <li>Books</li>
+                            <li>E-Gift Cards</li>
+                        </ul>
+
+                        <ul class="space-y-2">
+                            <li>Munchies</li>
+                            <li>Tea, Coffee & Milk Drinks</li>
+                            <li>Atta, Rice & Dal</li>
+                            <li>Chicken, Meat & Fish</li>
+                            <li>Baby Care</li>
+                            <li>Home Furnishing & Decor</li>
+                            <li>Beauty & Cosmetics</li>
+                            <li>Electronics & Electricals</li>
+                            <li>Toys & Games</li>
+                            <li>Rakhi Gifts</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="border-t mt-12"></div>
+
+        <!-- BOTTOM FOOTER -->
+        <div class="w-full px-12 pt-6 flex items-center justify-between text-sm text-gray-500">
+
+            <!-- COPYRIGHT -->
+            <p>© Crawford Commerce Pvt Ltd, 2016-2025</p>
+
+            <!-- DOWNLOAD APP -->
+            <div class="flex items-center gap-4">
+                <span class="font-medium text-gray-700">Download App</span>
+                <img src="/Assets/Images/Playstore.png" class="h-8" alt="App Store">
+                <img src="/Assets/Images/Appstore.png" class="h-8" alt="Play Store">
+            </div>
+
+            <!-- SOCIAL ICONS -->
+            <div class="flex items-center gap-4 text-black">
+                <span class="material-icons">facebook</span>
+                <span class="material-icons">close</span>
+                <span class="material-icons">camera_alt</span>
+                <span class="material-icons">linkedin</span>
+                <span class="material-icons">copyright</span>
+            </div>
+
+        </div>
+
+        <!-- DISCLAIMER -->
+        <div class="w-full px-12 pt-4 text-xs text-gray-400 leading-relaxed">
+            “Crawford” is owned and managed by Crawford Commerce Private Limited and is not related or interconnected
+            in whatsoever manner or nature to any other similar services.
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+    <script src="/Assets/js/main.js"></script>
+</body>
+
+</html>

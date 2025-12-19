@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crawford – My Cart</title>
+    <link rel="stylesheet" href="/Assets/css/global.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+
+    <!-- Desktop Header -->
+    <header class="hidden md:block w-full bg-white border-b">
+
+        <!-- TOP NAVBAR -->
+        <div class="w-full px-6">
+            <div class="flex items-center justify-between h-[72px] gap-6">
+
+                <!-- LOGO -->
+                <h1 class="flex text-3xl font-bold text-yellow-500 cursor-pointer" onclick="showHome()">
+                    <img src="/Assets/Images/logo.png" alt="crawford2U Logo" class="inline h-10 mr-0" />
+                    crawford <span class="text-green-600">2U</span>
+                </h1>
+
+                <!-- DELIVERY -->
+                <div onclick="openLocationModal()" class="flex flex-col leading-tight cursor-pointer">
+                    <span class="text-sm font-semibold">Deliver at your Doorstep</span>
+                    <span class="text-xs text-gray-600 flex items-center gap-1">
+                        Mumbai, Maharashtra
+                        <span class="material-icons text-base">expand_more</span>
+                    </span>
+                </div>
+
+                <!-- SEARCH -->
+                <div class="flex-1 max-w-[640px]">
+                    <div class="relative">
+                        <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
+                            search
+                        </span>
+                        <input id="searchInput" placeholder="Search what you want?" type="text"
+                            class="w-full pl-10 pr-4 py-3 bg-gray-100 rounded-lg outline-none focus:ring-2 focus:ring-green-400" />
+                    </div>
+                </div>
+
+                <!-- ACTIONS -->
+                <div class="flex items-center gap-6 cursor-pointer">
+                    <button onclick="login()" class="text-sm font-medium">Login</button>
+                    <button id="openCartBtn" class="flex items-center gap-2 bg-gray-200 px-4 py-2 rounded-lg">
+                        <span class="material-icons text-base">shopping_cart</span>
+                        My Cart
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE WRAPPER -->
+    <main class="max-w-7xl mx-auto md:mt-8  px-4 pb-32 lg:pb-10">
+
+        <!-- MOBILE HEADER -->
+        <div class="flex items-center justify-between py-4 lg:hidden">
+            <button onclick="goBack()">
+                <span class="material-icons text-2xl">arrow_back_ios_new</span>
+            </button>
+            <span class="material-icons text-2xl">share</span>
+        </div>
+
+        <!-- MAIN GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-10 mb-4">
+
+            <!-- LEFT: IMAGE SECTION -->
+            <div class="relative max-w-xl w-full mx-auto">
+
+                <!-- IMAGE VIEW -->
+                <div class="bg-gray-50 rounded-3xl p-6 flex justify-center overflow-hidden relative">
+                    <div class="w-full h-[320px] lg:h-[420px] bg-gray-50 rounded-3xl
+            flex items-center justify-center overflow-hidden">
+
+                        <img id="productImage" src="./Assets/Images/stationery-item-bgremove.png"
+                            class="max-w-full max-h-full object-contain transition-all duration-300 cursor-zoom-in"
+                            onclick="openZoom(this.src)" />
+
+                    </div>
+
+
+                    <!-- PREV -->
+                    <button onclick="prevImage()" class="flex absolute left-0 top-1/2 -translate-y-1/2
+            w-10 h-10 rounded-full bg-white/90 backdrop-blur
+            shadow-lg items-center justify-center hover:scale-110 transition">
+                        <span class="material-icons">chevron_left</span>
+                    </button>
+
+                    <!-- NEXT -->
+                    <button onclick="nextImage()" class="flex absolute right-0 top-1/2 -translate-y-1/2
+            w-10 h-10 rounded-full bg-white/90 backdrop-blur
+            shadow-lg items-center justify-center hover:scale-110 transition">
+                        <span class="material-icons">chevron_right</span>
+                    </button>
+                </div>
+
+                <!-- DOTS -->
+                <div class="flex justify-center gap-2 mt-4">
+                    <span class="dot w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                    <span class="dot w-2.5 h-2.5 rounded-full bg-gray-300"></span>
+                    <span class="dot w-2.5 h-2.5 rounded-full bg-gray-300"></span>
+                </div>
+            </div>
+
+
+            <!-- RIGHT: PRODUCT INFO -->
+            <div>
+
+                <div class="flex items-center gap-2 text-sm text-gray-400">
+                    <span>Stationery</span>
+                    <span>•</span>
+                    <span class="text-gray-600 font-medium">Apsara</span>
+                </div>
+                <h1 class="text-2xl lg:text-3xl font-bold mt-1 leading-tight">
+                    Premium Smooth Writing Pencil
+                </h1>
+
+                <!-- RATING -->
+                <div class="flex items-center gap-2">
+                    <div class="flex text-orange-400">
+                        <span class="material-icons text-base">star</span>
+                        <span class="material-icons text-base">star</span>
+                        <span class="material-icons text-base">star</span>
+                        <span class="material-icons text-base">star</span>
+                        <span class="material-icons text-base text-gray-300">star</span>
+                    </div>
+                    <span class="text-sm text-gray-500">(124 reviews)</span>
+                    <span class="text-sm text-green-600 font-medium">4.2</span>
+                </div>
+
+                <!-- SHORT DESCRIPTION -->
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    High-quality graphite pencil designed for smooth, dark writing.
+                    Ideal for students, artists, and professionals.
+                </p>
+
+                <!-- PRICE SECTION -->
+                <div class="flex items-end gap-4 mt-4">
+                    <div>
+                        <span class="text-3xl font-bold">₹49</span>
+                        <span class="text-sm text-gray-400 line-through ml-2">₹80</span>
+                    </div>
+                    <span class="text-sm text-green-600 bg-green-100 px-3 py-1 rounded-full">
+                        In Stock
+                    </span>
+                </div>
+
+                <!-- DELIVERY INFO -->
+                <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-xl">
+                    <span class="material-icons text-green-600">local_shipping</span>
+                    <div class="text-sm">
+                        <p class="font-medium">Delivery by Tomorrow</p>
+                        <p class="text-gray-500">Free delivery on orders above ₹199</p>
+                    </div>
+                </div>
+
+                <!-- OFFERS -->
+                <div class="bg-green-50 border border-green-200 rounded-xl p-3 text-sm space-y-1">
+                    <p class="font-medium text-green-700 flex items-center gap-1">
+                        <span class="material-icons text-sm">local_offer</span>
+                        Available Offers
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Flat 10% off on first order</li>
+                        <li>Extra ₹20 off on prepaid orders</li>
+                    </ul>
+                </div>
+
+                <!-- QUANTITY -->
+                <div class="flex items-center gap-4 mt-6">
+                    <button class="w-10 h-10 border rounded-xl text-xl">−</button>
+                    <div class="w-12 h-10 border rounded-xl flex items-center justify-center font-semibold">
+                        1
+                    </div>
+                    <button class="w-10 h-10 border rounded-xl text-xl text-green-600">+</button>
+                </div>
+
+                <!-- ADD TO CART (DESKTOP) -->
+                <button
+                    class="hidden lg:flex mt-8 w-full bg-green-500 text-white py-4 rounded-2xl text-lg font-semibold justify-center gap-2">
+                    <span class="material-icons">shopping_basket</span>
+                    Add to Basket
+                </button>
+            </div>
+
+
+            <!-- DETAILS -->
+            <div class="md:mt-10 mt-2 space-y-6 border-r border-gray-200">
+
+                <div>
+                    <h3 class="font-semibold text-lg">Product Details</h3>
+                    <p class="text-gray-500 text-sm mt-2 leading-relaxed">
+                        A smooth-writing, break-resistant pencil designed for everyday use.
+                        Ideal for school, office, and sketching.
+                    </p>
+                </div>
+
+                <div class="flex justify-between items-center">
+                    <h3 class="font-semibold text-lg">Dimensions</h3>
+                    <span class="text-sm bg-gray-100 px-3 py-1 rounded-lg">
+                        23 × 12 cm
+                    </span>
+                </div>
+
+                <div class="flex justify-between items-center">
+                    <h3 class="font-semibold text-lg">Reviews</h3>
+                    <span class="material-icons">chevron_right</span>
+                </div>
+
+            </div>
+
+
+            <!-- DETAILS -->
+            <div class="md:mt-10 mt-2 space-y-6">
+
+                <!-- WHY SHOP FROM CRAWFORD -->
+                <div>
+                    <h3 class="font-semibold text-lg">Why shop from Crawford?</h3>
+                </div>
+
+                <!-- EXPRESS DELIVERY -->
+                <div class="flex gap-4 items-start">
+                    <span class="material-icons text-green-600">bolt</span>
+                    <div>
+                        <h4 class="font-semibold text-sm">Express Delivery</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            Get your fresh groceries, dry fruits, and essentials delivered
+                            quickly from trusted Crawford Market sellers near you.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- BEST PRICES -->
+                <div class="flex gap-4 items-start">
+                    <span class="material-icons text-orange-500">local_offer</span>
+                    <div>
+                        <h4 class="font-semibold text-sm">Best Prices & Offers</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            Enjoy competitive prices straight from wholesalers and
+                            long-established Crawford Market shops.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- WIDE ASSORTMENT -->
+                <div class="flex gap-4 items-start">
+                    <span class="material-icons text-blue-600">storefront</span>
+                    <div>
+                        <h4 class="font-semibold text-sm">Wide Assortment</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            Choose from thousands of products including spices, dry fruits,
+                            grains, household items, and more — all under one roof.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <hr>
+
+        <!-- SEED PRODUCTS -->
+        <div class="mt-6 md:px-0">
+            <div class="flex px-4 md:px-0 justify-between items-center">
+                <h2 class="text-xl md:text-2xl font-bold">Similar Products</h2>
+                <a class="text-green-600 font-medium">See all</a>
+            </div>
+
+            <!-- ================= HORIZONTAL PRODUCT SLIDER ================= -->
+            <div class="relative mt-4 overflow-hidden">
+
+                <!-- LEFT SMOKE / CAVE OVERLAY -->
+                <div class="leftFade hidden md:block pointer-events-none absolute left-0 top-0 h-full w-20
+               bg-gradient-to-r from-black/30 via-black/10 to-transparent
+               opacity-0 transition-opacity duration-300 z-10">
+                </div>
+
+                <!-- RIGHT SMOKE / CAVE OVERLAY -->
+                <div class="rightFade hidden md:block pointer-events-none absolute right-0 top-0 h-full w-20
+               bg-gradient-to-l from-black/30 via-black/10 to-transparent
+               opacity-100 transition-opacity duration-300 z-10">
+                </div>
+
+                <!-- PREVIOUS BUTTON -->
+                <button class="prevBtn hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 z-20
+               w-10 h-10 flex items-center justify-center
+               bg-white/90 backdrop-blur-md
+               shadow-[0_6px_18px_rgba(0,0,0,0.25)]
+               rounded-full
+               hover:scale-110 active:scale-95
+               transition-all duration-200">
+                    <span class="material-icons text-gray-800">chevron_left</span>
+                </button>
+
+                <!-- SCROLL CONTAINER -->
+                <div class="categoryScroll flex gap-4 px-4 md:px-0 overflow-x-auto scroll-smooth category-scroll">
+
+                    <!-- PRODUCT CARD (REPEATABLE) -->
+                    <div onclick="showProductDetail()"
+                        class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
+                        <div class="relative">
+                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+
+                            <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
+                           rounded-full flex items-center gap-1 text-xs font-medium shadow">
+                                <span class="material-icons text-yellow-500 text-sm">star</span>
+                                4.5
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">Seed</p>
+                        <h4 class="font-semibold">Prov Premium Flax</h4>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <h3 class="font-bold text-xl">
+                                ₹49
+                                <span class="pl-2 text-gray-500 text-sm font-normal">₹80</span>
+                            </h3>
+                        </div>
+
+                        <button class="bg-green-500 text-white rounded-lg px-4 py-2 w-full mt-2 font-bold">
+                            ADD
+                        </button>
+                    </div>
+                    <div onclick="showProductDetail()"
+                        class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
+                        <div class="relative">
+                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+
+                            <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
+                           rounded-full flex items-center gap-1 text-xs font-medium shadow">
+                                <span class="material-icons text-yellow-500 text-sm">star</span>
+                                4.5
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">Seed</p>
+                        <h4 class="font-semibold">Prov Premium Flax</h4>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <h3 class="font-bold text-xl">
+                                ₹49
+                                <span class="pl-2 text-gray-500 text-sm font-normal">₹80</span>
+                            </h3>
+                        </div>
+
+                        <button class="bg-green-500 text-white rounded-lg px-4 py-2 w-full mt-2 font-bold">
+                            ADD
+                        </button>
+                    </div>
+                    <div onclick="showProductDetail()"
+                        class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
+                        <div class="relative">
+                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+
+                            <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
+                           rounded-full flex items-center gap-1 text-xs font-medium shadow">
+                                <span class="material-icons text-yellow-500 text-sm">star</span>
+                                4.5
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">Seed</p>
+                        <h4 class="font-semibold">Prov Premium Flax</h4>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <h3 class="font-bold text-xl">
+                                ₹49
+                                <span class="pl-2 text-gray-500 text-sm font-normal">₹80</span>
+                            </h3>
+                        </div>
+
+                        <button class="bg-green-500 text-white rounded-lg px-4 py-2 w-full mt-2 font-bold">
+                            ADD
+                        </button>
+                    </div>
+                    <div onclick="showProductDetail()"
+                        class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
+                        <div class="relative">
+                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+
+                            <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
+                           rounded-full flex items-center gap-1 text-xs font-medium shadow">
+                                <span class="material-icons text-yellow-500 text-sm">star</span>
+                                4.5
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">Seed</p>
+                        <h4 class="font-semibold">Prov Premium Flax</h4>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <h3 class="font-bold text-xl">
+                                ₹49
+                                <span class="pl-2 text-gray-500 text-sm font-normal">₹80</span>
+                            </h3>
+                        </div>
+
+                        <button class="bg-green-500 text-white rounded-lg px-4 py-2 w-full mt-2 font-bold">
+                            ADD
+                        </button>
+                    </div>
+                    <div onclick="showProductDetail()"
+                        class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
+                        <div class="relative">
+                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+
+                            <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
+                           rounded-full flex items-center gap-1 text-xs font-medium shadow">
+                                <span class="material-icons text-yellow-500 text-sm">star</span>
+                                4.5
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">Seed</p>
+                        <h4 class="font-semibold">Prov Premium Flax</h4>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <h3 class="font-bold text-xl">
+                                ₹49
+                                <span class="pl-2 text-gray-500 text-sm font-normal">₹80</span>
+                            </h3>
+                        </div>
+
+                        <button class="bg-green-500 text-white rounded-lg px-4 py-2 w-full mt-2 font-bold">
+                            ADD
+                        </button>
+                    </div>
+                    <div onclick="showProductDetail()"
+                        class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
+                        <div class="relative">
+                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+
+                            <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
+                           rounded-full flex items-center gap-1 text-xs font-medium shadow">
+                                <span class="material-icons text-yellow-500 text-sm">star</span>
+                                4.5
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">Seed</p>
+                        <h4 class="font-semibold">Prov Premium Flax</h4>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <h3 class="font-bold text-xl">
+                                ₹49
+                                <span class="pl-2 text-gray-500 text-sm font-normal">₹80</span>
+                            </h3>
+                        </div>
+
+                        <button class="bg-green-500 text-white rounded-lg px-4 py-2 w-full mt-2 font-bold">
+                            ADD
+                        </button>
+                    </div>
+                    <div onclick="showProductDetail()"
+                        class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
+                        <div class="relative">
+                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+
+                            <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
+                           rounded-full flex items-center gap-1 text-xs font-medium shadow">
+                                <span class="material-icons text-yellow-500 text-sm">star</span>
+                                4.5
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">Seed</p>
+                        <h4 class="font-semibold">Prov Premium Flax</h4>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <h3 class="font-bold text-xl">
+                                ₹49
+                                <span class="pl-2 text-gray-500 text-sm font-normal">₹80</span>
+                            </h3>
+                        </div>
+
+                        <button class="bg-green-500 text-white rounded-lg px-4 py-2 w-full mt-2 font-bold">
+                            ADD
+                        </button>
+                    </div>
+                    <div onclick="showProductDetail()"
+                        class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
+                        <div class="relative">
+                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+
+                            <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
+                           rounded-full flex items-center gap-1 text-xs font-medium shadow">
+                                <span class="material-icons text-yellow-500 text-sm">star</span>
+                                4.5
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">Seed</p>
+                        <h4 class="font-semibold">Prov Premium Flax</h4>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <h3 class="font-bold text-xl">
+                                ₹49
+                                <span class="pl-2 text-gray-500 text-sm font-normal">₹80</span>
+                            </h3>
+                        </div>
+
+                        <button class="bg-green-500 text-white rounded-lg px-4 py-2 w-full mt-2 font-bold">
+                            ADD
+                        </button>
+                    </div>
+                    <div onclick="showProductDetail()"
+                        class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
+                        <div class="relative">
+                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+
+                            <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
+                           rounded-full flex items-center gap-1 text-xs font-medium shadow">
+                                <span class="material-icons text-yellow-500 text-sm">star</span>
+                                4.5
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">Seed</p>
+                        <h4 class="font-semibold">Prov Premium Flax</h4>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <h3 class="font-bold text-xl">
+                                ₹49
+                                <span class="pl-2 text-gray-500 text-sm font-normal">₹80</span>
+                            </h3>
+                        </div>
+
+                        <button class="bg-green-500 text-white rounded-lg px-4 py-2 w-full mt-2 font-bold">
+                            ADD
+                        </button>
+                    </div>
+                    <div onclick="showProductDetail()"
+                        class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
+                        <div class="relative">
+                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+
+                            <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
+                           rounded-full flex items-center gap-1 text-xs font-medium shadow">
+                                <span class="material-icons text-yellow-500 text-sm">star</span>
+                                4.5
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">Seed</p>
+                        <h4 class="font-semibold">Prov Premium Flax</h4>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <h3 class="font-bold text-xl">
+                                ₹49
+                                <span class="pl-2 text-gray-500 text-sm font-normal">₹80</span>
+                            </h3>
+                        </div>
+
+                        <button class="bg-green-500 text-white rounded-lg px-4 py-2 w-full mt-2 font-bold">
+                            ADD
+                        </button>
+                    </div>
+                    <div onclick="showProductDetail()"
+                        class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
+                        <div class="relative">
+                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+
+                            <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
+                           rounded-full flex items-center gap-1 text-xs font-medium shadow">
+                                <span class="material-icons text-yellow-500 text-sm">star</span>
+                                4.5
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">Seed</p>
+                        <h4 class="font-semibold">Prov Premium Flax</h4>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <h3 class="font-bold text-xl">
+                                ₹49
+                                <span class="pl-2 text-gray-500 text-sm font-normal">₹80</span>
+                            </h3>
+                        </div>
+
+                        <button class="bg-green-500 text-white rounded-lg px-4 py-2 w-full mt-2 font-bold">
+                            ADD
+                        </button>
+                    </div>
+                    <div onclick="showProductDetail()"
+                        class="cursor-pointer bg-white rounded-2xl p-3 shadow-sm min-w-[170px]">
+                        <div class="relative">
+                            <img src="./Assets/Images/seed-category.png" class="h-28 sm:h-32 mx-auto object-contain" />
+
+                            <div class="absolute top-1 right-1 bg-white/90 backdrop-blur px-2 py-0.5
+                           rounded-full flex items-center gap-1 text-xs font-medium shadow">
+                                <span class="material-icons text-yellow-500 text-sm">star</span>
+                                4.5
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">Seed</p>
+                        <h4 class="font-semibold">Prov Premium Flax</h4>
+
+                        <div class="flex items-center justify-between mt-2">
+                            <h3 class="font-bold text-xl">
+                                ₹49
+                                <span class="pl-2 text-gray-500 text-sm font-normal">₹80</span>
+                            </h3>
+                        </div>
+
+                        <button class="bg-green-500 text-white rounded-lg px-4 py-2 w-full mt-2 font-bold">
+                            ADD
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- NEXT BUTTON -->
+                <button class="nextBtn hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 z-20
+               w-10 h-10 flex items-center justify-center
+               bg-white/90 backdrop-blur-md
+               shadow-[0_6px_18px_rgba(0,0,0,0.25)]
+               rounded-full
+               hover:scale-110 active:scale-95
+               transition-all duration-200">
+                    <span class="material-icons text-gray-800">chevron_right</span>
+                </button>
+
+            </div>
+
+
+        </div>
+
+        <!-- MOBILE ADD TO CART -->
+        <div class="fixed bottom-4 left-0 right-0 px-4 lg:hidden">
+            <button
+                class="w-full bg-green-500 text-white py-4 rounded-2xl text-lg font-semibold flex items-center justify-center gap-2 shadow-xl">
+                <span class="material-icons">shopping_basket</span>
+                Add To Basket
+            </button>
+        </div>
+
+    </main>
+
+    <!-- ZOOM MODAL -->
+    <div id="zoomModal" class="fixed inset-0 bg-black/80 hidden z-50 flex items-center justify-center"
+        onclick="closeZoom()">
+        <img id="zoomImg" class="max-w-full max-h-full">
+    </div>
+
+
+
+
+    <!-- Desktop Footer -->
+    <footer class="hidden md:block bg-white border-t pt-14 pb-6">
+
+        <!-- TOP FOOTER -->
+        <div class="w-full px-12">
+            <div class="grid grid-cols-12 gap-10 text-sm text-gray-600">
+
+                <!-- COMPANY -->
+                <div class="col-span-2">
+                    <h3 class="text-black font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="hover:text-black">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-black">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-black">Careers</a></li>
+                        <li><a href="#" class="hover:text-black">Security</a></li>
+                    </ul>
+                </div>
+
+                <!-- LEGAL -->
+                <div class="col-span-2">
+                    <h3 class="text-black font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="policy.html" class="hover:text-black">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-black">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:text-black">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- PARTNERS -->
+                <div class="col-span-2">
+                    <h3 class="text-black font-semibold mb-4">Partners</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-black">Partner With Us</a></li>
+                        <li><a href="#" class="hover:text-black">Seller</a></li>
+                        <li><a href="#" class="hover:text-black">Franchise</a></li>
+                        <li><a href="#" class="hover:text-black">Warehouse</a></li>
+                        <li><a href="#" class="hover:text-black">Delivery Partner</a></li>
+                    </ul>
+                </div>
+
+                <!-- CATEGORIES -->
+                <div class="col-span-6">
+                    <h3 class="text-black font-semibold mb-4">Categories</h3>
+
+                    <div class="grid grid-cols-4 gap-y-2 gap-x-8">
+
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="productby-category.html">Home Products</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Cleaning Essentials</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Dry Fruits</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Stationery</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Bedroom</a>
+                            </li>
+                        </ul>
+
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="productby-category.html">Kitchen</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Bathroom</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Living Room</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Outdoor</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Seeds</a>
+                            </li>
+                        </ul>
+
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="productby-category.html">Almonds</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Cashew</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Walnuts</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Dry Figs</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Pistachios</a>
+                            </li>
+                        </ul>
+
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="productby-category.html">Macadamia Nuts</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Raisins</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Dates</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Apricots</a>
+                            </li>
+                            <li>
+                                <a href="productby-category.html">Mixed Nuts</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="border-t mt-12"></div>
+
+        <!-- BOTTOM FOOTER -->
+        <div class="w-full px-12 pt-6 flex items-center justify-between text-sm text-gray-500">
+
+            <p>© Crawford Commerce Pvt Ltd, 2016–2025</p>
+
+            <!-- APP LINKS -->
+            <div class="flex items-center gap-4">
+                <span class="font-medium text-gray-700">Download App</span>
+                <img src="/Assets/Images/Playstore.png" class="h-8" alt="Play Store">
+                <img src="/Assets/Images/Appstore.png" class="h-8" alt="App Store">
+            </div>
+
+            <!-- SOCIAL -->
+            <div class="flex items-center gap-4 text-gray-700">
+                <div class="flex items-center gap-4 text-gray-700">
+                    <a href="#" class="hover:text-blue-600 transition">
+                        <i class="fa-brands fa-facebook-f text-lg"></i>
+                    </a>
+
+                    <a href="#" class="hover:text-black transition">
+                        <i class="fa-brands fa-x-twitter text-lg"></i>
+                    </a>
+
+                    <a href="#" class="hover:text-pink-500 transition">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                    </a>
+
+                    <a href="#" class="hover:text-blue-700 transition">
+                        <i class="fa-brands fa-linkedin-in text-lg"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- DISCLAIMER -->
+        <div class="w-full px-12 pt-4 text-xs text-gray-400 leading-relaxed">
+            “Crawford” is owned and managed by Crawford Commerce Private Limited and
+            is not related or interconnected with any other similar services.
+        </div>
+
+    </footer>
+
+
+    <script src="/Assets/js/main.js"></script>
+
+    <script>
+        // Zoom
+        function openZoom(src) {
+            document.getElementById("zoomImg").src = src;
+            document.getElementById("zoomModal").classList.remove("hidden");
+        }
+
+        function closeZoom() {
+            document.getElementById("zoomModal").classList.add("hidden");
+        }
+    </script>
+</body>
+
+</html>
