@@ -52,7 +52,8 @@
                     <!-- LOGIN DROPDOWN -->
                     <div class="relative group">
 
-                        <button id="loginBtn" class="text-sm font-medium flex items-center gap-1" onclick="toggleLoginDropdown()">
+                        <button id="loginBtn" class="text-sm font-medium flex items-center gap-1"
+                            onclick="toggleLoginDropdown()">
                             Login
                             <span class="material-icons text-base">expand_more</span>
                         </button>
@@ -1265,7 +1266,22 @@
 
 
 
+    <script>
+        // Login Dropdown
+        function toggleLoginDropdown() {
+            const dropdown = document.getElementById("loginDropdown");
+            dropdown.classList.toggle("hidden");
+        }
 
+        document.addEventListener("click", function (e) {
+            const dropdown = document.getElementById("loginDropdown");
+            const loginBtn = document.getElementById("loginBtn");
+
+            if (!dropdown.contains(e.target) && !loginBtn.contains(e.target)) {
+                dropdown.classList.add("hidden");
+            }
+        });
+    </script>
     <script src="./Assets/js/main.js"></script>
 </body>
 

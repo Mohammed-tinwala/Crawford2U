@@ -325,20 +325,7 @@ dot.forEach((dot, index) => {
     });
 });
 
-// Login Dropdown
-function toggleLoginDropdown() {
-  const dropdown = document.getElementById("loginDropdown");
-  dropdown.classList.toggle("hidden");
-}
 
-document.addEventListener("click", function (e) {
-  const dropdown = document.getElementById("loginDropdown");
-  const loginBtn = document.getElementById("loginBtn");
-
-  if (!dropdown.contains(e.target) && !loginBtn.contains(e.target)) {
-    dropdown.classList.add("hidden");
-  }
-});
 
 // User Login Modal
 function openUserLoginModal() {
