@@ -1281,6 +1281,49 @@
                 dropdown.classList.add("hidden");
             }
         });
+
+        // User Login Modal
+        function openUserLoginModal() {
+            document.getElementById("userLoginModal").classList.remove("hidden");
+            document.body.classList.add("overflow-hidden");
+        }
+
+        function closeUserLoginModal() {
+            document.getElementById("userLoginModal").classList.add("hidden");
+            document.body.classList.remove("overflow-hidden");
+            resetUserLogin();
+        }
+
+        function showUserOTP() {
+            document.getElementById("user-phone-section").classList.add("hidden");
+            document.getElementById("user-otp-section").classList.remove("hidden");
+            document.querySelector(".user-otp-input").focus();
+        }
+
+        function resetUserLogin() {
+            document.getElementById("user-phone-section").classList.remove("hidden");
+            document.getElementById("user-otp-section").classList.add("hidden");
+        }
+
+        function submitUserOTP() {
+            const toast = document.getElementById("loginSuccessToast");
+            toast.classList.remove("hidden");
+
+            setTimeout(() => {
+                toast.classList.add("hidden");
+                window.location.href = "index.html";
+            }, 1500);
+        }
+
+        // OTP Auto Focus
+        document.addEventListener("input", function (e) {
+            if (e.target.classList.contains("user-otp-input")) {
+                if (e.target.value.length === 1) {
+                    const next = e.target.nextElementSibling;
+                    if (next) next.focus();
+                }
+            }
+        });
     </script>
     <script src="./Assets/js/main.js"></script>
 </body>
